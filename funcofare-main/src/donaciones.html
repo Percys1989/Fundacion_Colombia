@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donaciones - Fundación Colombia Familias Resilientes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styleheader.css">
+    <link rel="stylesheet" href="../css/stylefooter.css">
+    <link rel="stylesheet" href="../css/styleindex.css">
+    <link rel="stylesheet" href="../css/styledonaciones.css">
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <!-- HERO -->
+    <section class="don-hero">
+        <h1>💛 Apoya Nuestra Fundación</h1>
+        <p>Tu aporte transforma vidas en Barranquilla</p>
+    </section>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <section class="don-section">
+
+        <!-- INDICADOR DE PASOS -->
+        <div class="don-steps">
+            <div class="don-step active" id="stepInd1">
+                <div class="don-step-num">1</div>
+                <span>Tus datos</span>
+            </div>
+            <div class="don-step-line"></div>
+            <div class="don-step" id="stepInd2">
+                <div class="don-step-num">2</div>
+                <span>Método de pago</span>
+            </div>
+            <div class="don-step-line"></div>
+            <div class="don-step" id="stepInd3">
+                <div class="don-step-num">3</div>
+                <span>Confirmación</span>
+            </div>
+        </div>
+
+        <!-- TARJETA PRINCIPAL -->
+        <div class="don-card">
+
+            <!-- ══ PASO 1: DATOS ══ -->
+            <div class="don-panel active" id="panel1">
+                <h2 class="don-title">📝 Tus datos</h2>
+                <p class="don-subtitle">Completa la información para registrar tu donación</p>
+
+                <div class="don-form">
+
+                    <div class="don-field">
+                        <label>Nombre completo <span class="req">*</span></label>
+                        <input type="text" id="inputNombre" placeholder="Ej: María García López">
+                    </div>
+
+                    <div class="don-field">
+                        <label>Correo electrónico <span class="req">*</span></label>
+                        <input type="email" id="inputCorreo" placeholder="correo@ejemplo.com">
+                    </div>
+
+                    <div class="don-field">
+                        <label>Número de celular <span class="req">*</span></label>
+                        <input type="tel" id="inputCelular" placeholder="Ej: 3001234567" maxlength="10">
+                    </div>
+
+                    <div class="don-field">
+                        <label>Tipo de donación <span class="req">*</span></label>
+                        <div class="don-tipo">
+                            <button type="button" class="tipo-btn" data-tipo="Diezmo" onclick="selTipo(this)">
+                                <i class="fas fa-church"></i>
+                                <strong>Diezmo</strong>
+                                <small>El 10% de mis ingresos</small>
+                            </button>
+                            <button type="button" class="tipo-btn" data-tipo="Ofrenda" onclick="selTipo(this)">
+                                <i class="fas fa-heart"></i>
+                                <strong>Ofrenda</strong>
+                                <small>Donación voluntaria</small>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="don-field">
+                        <label>Monto a donar <span class="req">*</span></label>
+                        <div class="don-montos">
+                            <button type="button" class="monto-btn" data-value="20000"
+                                onclick="selMonto(this)">$20.000</button>
+                            <button type="button" class="monto-btn" data-value="50000"
+                                onclick="selMonto(this)">$50.000</button>
+                            <button type="button" class="monto-btn" data-value="100000"
+                                onclick="selMonto(this)">$100.000</button>
+                            <button type="button" class="monto-btn" data-value="200000"
+                                onclick="selMonto(this)">$200.000</button>
+                            <button type="button" class="monto-btn" data-value="otro" onclick="selMonto(this)">Otro
+                                valor</button>
+                        </div>
+                        <input type="number" id="montoPersonalizado" placeholder="Escribe el monto en pesos COP"
+                            style="display:none; margin-top:10px;">
+                    </div>
+
+                    <button class="don-btn-primary" onclick="irPaso2()">
+                        Continuar <i class="fas fa-arrow-right"></i>
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- ══ PASO 2: MÉTODO DE PAGO ══ -->
+            <div class="don-panel" id="panel2">
+                <h2 class="don-title">💳 Elige cómo donar</h2>
+                <p class="don-subtitle">Selecciona el método de pago de tu preferencia</p>
+
+                <div class="don-metodos">
+                    <div class="metodo-card" id="cardTransferencia" onclick="selMetodo('Transferencia')">
+                        <div class="metodo-icon">🏦</div>
+                        <h3>Transferencia Bancaria</h3>
+                        <p>Transfiere directamente a nuestra cuenta</p>
+                    </div>
+                    <div class="metodo-card" id="cardQR" onclick="selMetodo('QR')">
+                        <div class="metodo-icon">📱</div>
+                        <h3>Código QR</h3>
+                        <p>Escanea con tu app bancaria</p>
+                    </div>
+                    <div class="metodo-card disabled" id="cardPSE" title="Próximamente disponible">
+                        <div class="metodo-icon">💳</div>
+                        <h3>Pago por PSE</h3>
+                        <p>Próximamente disponible</p>
+                        <span class="badge-pronto">Próximamente</span>
+                    </div>
+                </div>
+
+                <!-- INFO TRANSFERENCIA -->
+                <div class="metodo-info" id="infoTransferencia">
+                    <h4><i class="fas fa-university"></i> Datos bancarios</h4>
+                    <div class="info-fila">
+                        <span class="info-lbl">Banco</span>
+                        <span class="info-val">Banco de Bogotá</span>
+                    </div>
+                    <div class="info-fila">
+                        <span class="info-lbl">Tipo de cuenta</span>
+                        <span class="info-val">Ahorros</span>
+                    </div>
+                    <div class="info-fila">
+                        <span class="info-lbl">Número</span>
+                        <span class="info-val">
+                            <!-- ✏️ REEMPLAZA CON EL NÚMERO REAL -->
+                            000-000-0000-0000
+                            <button class="btn-copiar" onclick="copiar('000-000-0000-0000')">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </span>
+                    </div>
+                    <div class="info-fila">
+                        <span class="info-lbl">Titular</span>
+                        <span class="info-val">Fundación Colombia Familias Resilientes</span>
+                    </div>
+                    <div class="info-fila">
+                        <span class="info-lbl">NIT</span>
+                        <span class="info-val">
+                            <!-- ✏️ REEMPLAZA CON EL NIT REAL -->
+                            000.000.000-0
+                            <button class="btn-copiar" onclick="copiar('000.000.000-0')">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </span>
+                    </div>
+                    <p class="metodo-nota">
+                        <i class="fas fa-info-circle"></i>
+                        Realiza la transferencia y luego haz clic en "Confirmar donación"
+                    </p>
+                </div>
+
+                <!-- INFO QR -->
+                <div class="metodo-info" id="infoQR">
+                    <h4><i class="fas fa-qrcode"></i> Escanea el código QR</h4>
+                    <div class="qr-wrap">
+                        <!-- ✏️ Asegúrate de que imagenes/qr.png existe en tu carpeta -->
+                        <img src="../imagenes/publicidad1.jpg" alt="QR de donación"
+                            onerror="this.src='https://placehold.co/180x180/png?text=QR'">
+                        <p>Abre tu app bancaria, selecciona "Pagar con QR" y escanea la imagen</p>
+                    </div>
+                    <p class="metodo-nota">
+                        <i class="fas fa-info-circle"></i>
+                        Realiza el pago y luego haz clic en "Confirmar donación"
+                    </p>
+                </div>
+
+                <!-- NÚMERO DE REFERENCIA -->
+                <div class="don-field" id="campoReferencia" style="display:none; margin-top:16px;">
+                    <label>
+                        Número de referencia de la transacción <span class="req">*</span>
+                    </label>
+                    <input type="text" id="inputReferencia" placeholder="Ej: 123456789 (aparece en tu app bancaria)">
+                    <p style="font-size:12px; color:#999; margin-top:6px;">
+                        <i class="fas fa-info-circle"></i>
+                        Encuéntralo en el comprobante o historial de tu app bancaria
+                    </p>
+                </div>
+
+                <div class="don-btn-group">
+                    <button class="don-btn-secondary" onclick="irPaso1()">
+                        <i class="fas fa-arrow-left"></i> Volver
+                    </button>
+                    <button class="don-btn-primary" id="btnConfirmar" onclick="irPaso3()" disabled>
+                        Confirmar donación <i class="fas fa-check"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ══ PASO 3: CONFIRMACIÓN ══ -->
+            <div class="don-panel" id="panel3">
+                <div class="don-gracias">
+                    <div class="gracias-icon">🙏</div>
+                    <h2>¡Gracias por tu generosidad!</h2>
+                    <p id="graciasTexto"></p>
+                    <div class="gracias-resumen" id="resumenDonacion"></div>
+                    <p class="gracias-nota">
+                        Hemos registrado tu donación exitosamente. La Fundación Colombia
+                        Familias Resilientes te lo agradece de corazón. ¡Que Dios te bendiga! ❤️
+                    </p>
+                    <a href="../Index.html" class="don-btn-primary"
+                        style="display:inline-flex; text-decoration:none; margin-top:20px; width:auto; padding: 14px 32px;">
+                        <i class="fas fa-home"></i> Volver al inicio
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="footer"></div>
+    <div class="footer-bottom">
+        <p>© 2026 Fundación Colombia Familias Resilientes. Todos los derechos reservados.</p>
+    </div>
+
+    <script src="../javascript/main.js"></script>
+    <script>
+
+        // ══════════════════════════════════════════════════════
+        //  ✏️  PEGA AQUÍ LA URL DE TU GOOGLE APPS SCRIPT
+        //  (la obtienes en Extensiones → Apps Script → Implementar)
+        // ══════════════════════════════════════════════════════
+        const SHEETS_URL = "https://script.google.com/macros/s/AKfycbyIXTnHoln60ygUcK8qmuwGuzRBFm8RuwhKRAWpeiXeP02bzTAKEgGMiXFI4CPS0kYTNg/exec";
+
+        // Estado global de la donación
+        let donacion = {
+            nombre: '', correo: '', celular: '',
+            tipo: '', monto: '', metodo: ''
+        };
+
+        // ── Seleccionar tipo (Diezmo / Ofrenda) ──
+        function selTipo(btn) {
+            document.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            donacion.tipo = btn.dataset.tipo;
+        }
+
+        // ── Seleccionar monto ──
+        function selMonto(btn) {
+            document.querySelectorAll('.monto-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const inp = document.getElementById('montoPersonalizado');
+            if (btn.dataset.value === 'otro') {
+                inp.style.display = 'block';
+                inp.focus();
+                donacion.monto = '';
+            } else {
+                inp.style.display = 'none';
+                inp.value = '';
+                donacion.monto = btn.dataset.value;
+            }
+        }
+
+        // ── Ir al paso 2 con validación ──
+        function irPaso2() {
+            const nombre = document.getElementById('inputNombre').value.trim();
+            const correo = document.getElementById('inputCorreo').value.trim();
+            const celular = document.getElementById('inputCelular').value.trim();
+            const montoP = document.getElementById('montoPersonalizado').value;
+
+            if (!nombre) { toast('Por favor escribe tu nombre completo.'); return; }
+            if (!correo || !correo.includes('@')) { toast('Por favor escribe un correo válido.'); return; }
+            if (!celular || celular.length < 7) { toast('Por favor escribe tu número de celular.'); return; }
+            if (!donacion.tipo) { toast('Por favor selecciona si es Diezmo u Ofrenda.'); return; }
+            if (!donacion.monto) {
+                if (!montoP || Number(montoP) < 1000) {
+                    toast('Por favor escribe un monto válido (mínimo $1.000).');
+                    return;
+                }
+                donacion.monto = montoP;
+            }
+
+            donacion.nombre = nombre;
+            donacion.correo = correo;
+            donacion.celular = celular;
+            setPanel(2);
+        }
+
+        // ── Seleccionar método de pago ──
+        function selMetodo(metodo) {
+            document.querySelectorAll('.metodo-card').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.metodo-info').forEach(i => i.classList.remove('show'));
+            document.getElementById('card' + metodo).classList.add('active');
+            document.getElementById('info' + metodo).classList.add('show');
+            donacion.metodo = metodo;
+            // Mostrar campo de referencia y habilitar botón
+            document.getElementById('campoReferencia').style.display = 'block';
+            document.getElementById('inputReferencia').value = '';
+            document.getElementById('btnConfirmar').disabled = false;
+        }
+
+        // ── Ir al paso 3 ──
+        function irPaso3() {
+            if (!donacion.metodo) { toast('Por favor selecciona un método de pago.'); return; }
+
+            const referencia = document.getElementById('inputReferencia').value.trim();
+            if (!referencia) {
+                toast('Por favor ingresa el número de referencia de tu transacción.');
+                document.getElementById('inputReferencia').focus();
+                return;
+            }
+            donacion.referencia = referencia;
+
+            const fmt = n => Number(n).toLocaleString('es-CO', {
+                style: 'currency', currency: 'COP', minimumFractionDigits: 0
+            });
+
+            document.getElementById('graciasTexto').textContent =
+                `${donacion.nombre}, tu ${donacion.tipo.toLowerCase()} de ${fmt(donacion.monto)} ha sido registrada.`;
+
+            document.getElementById('resumenDonacion').innerHTML = `
+                <div class="resumen-fila"><span>Nombre</span>     <strong>${donacion.nombre}</strong></div>
+                <div class="resumen-fila"><span>Correo</span>     <strong>${donacion.correo}</strong></div>
+                <div class="resumen-fila"><span>Celular</span>    <strong>${donacion.celular}</strong></div>
+                <div class="resumen-fila"><span>Tipo</span>       <strong>${donacion.tipo}</strong></div>
+                <div class="resumen-fila"><span>Monto</span>      <strong>${fmt(donacion.monto)}</strong></div>
+                <div class="resumen-fila"><span>Método</span>     <strong>${donacion.metodo}</strong></div>
+                <div class="resumen-fila"><span>Referencia</span> <strong>${donacion.referencia}</strong></div>
+            `;
+
+            setPanel(3);
+            enviarASheets();
+        }
+
+        // ── Volver al paso 1 ──
+        function irPaso1() {
+            setPanel(1);
+            donacion.metodo = '';
+            donacion.referencia = '';
+            document.getElementById('btnConfirmar').disabled = true;
+            document.getElementById('campoReferencia').style.display = 'none';
+            document.getElementById('inputReferencia').value = '';
+            document.querySelectorAll('.metodo-card').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.metodo-info').forEach(i => i.classList.remove('show'));
+        }
+
+        // ── Cambiar panel activo ──
+        function setPanel(n) {
+            document.querySelectorAll('.don-panel').forEach(p => p.classList.remove('active'));
+            document.getElementById('panel' + n).classList.add('active');
+            document.querySelectorAll('.don-step').forEach((s, i) => {
+                s.classList.toggle('active', i < n);
+                s.classList.toggle('done', i < n - 1);
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ── Enviar a Google Sheets vía GET (método confirmado que funciona) ──
+        function enviarASheets() {
+            if (SHEETS_URL === "PEGA_AQUI_TU_URL_DE_APPS_SCRIPT") {
+                console.warn("⚠️ Configura la URL de Apps Script.");
+                return;
+            }
+
+            // JSONP — único método que evita el 403 de Google
+            const params = new URLSearchParams({
+                nombre: donacion.nombre,
+                correo: donacion.correo,
+                celular: donacion.celular,
+                tipo: donacion.tipo,
+                monto: donacion.monto,
+                metodo: donacion.metodo,
+                referencia: donacion.referencia || '',
+                callback: 'respuestaSheets'
+            });
+
+            // Función que recibe la respuesta
+            window.respuestaSheets = function (data) {
+                if (data.resultado === 'ok') {
+                    console.log('✅ Donación registrada en Google Sheets');
+                }
+                // Limpiar el script del DOM
+                const s = document.getElementById('jsonpScript');
+                if (s) s.remove();
+            };
+
+            // Crear script tag con la URL (JSONP no tiene restricciones CORS)
+            const script = document.createElement('script');
+            script.id = 'jsonpScript';
+            script.src = SHEETS_URL + '?' + params.toString();
+            document.body.appendChild(script);
+        }
+
+        // ── Copiar al portapapeles ──
+        function copiar(texto) {
+            navigator.clipboard.writeText(texto)
+                .then(() => toast('✓ Copiado: ' + texto, true));
+        }
+
+        // ── Toast de notificación ──
+        function toast(msg, exito = false) {
+            const t = document.createElement('div');
+            t.className = 'don-toast' + (exito ? ' exito' : '');
+            t.textContent = msg;
+            document.body.appendChild(t);
+            setTimeout(() => t.classList.add('show'), 10);
+            setTimeout(() => {
+                t.classList.remove('show');
+                setTimeout(() => t.remove(), 300);
+            }, 3000);
+        }
+
+    </script>
+</body>
+
+</html>
