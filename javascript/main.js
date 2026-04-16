@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 // ── BASE GLOBAL ───────────────────────────────────────────
 const BASE_PATH = window.location.hostname.includes("github.io")
-  ? "/funcofare/"
+  ? "/Fundacion_Colombia/"
   : "/";
 // ── CARGAR HEADER ────────────────────────────────────────
 fetch(BASE_PATH + "src/header.html")
