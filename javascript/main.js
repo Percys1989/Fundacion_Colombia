@@ -8,11 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.text())
     .then(data => {
       document.getElementById("header").innerHTML = data;
+      const logo = document.querySelector(".logo-container img");
+      if (logo) { logo.src = BASE_PATH + "imagenes/Logo.png"; }
       activarMenu();
     });
   // LOGO
-  const logo = document.querySelector(".logo-container img");
-  if (logo) { logo.src = BASE_PATH + "imagenes/Logo.png"; }
+
 
   // BOTÓN DONAR
   document.querySelectorAll(".donate-btn").forEach(btn => {
