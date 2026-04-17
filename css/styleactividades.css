@@ -1,27 +1,55 @@
 /* ===== HERO ===== */
 .hero {
-    height: 300px;
+    position: relative;
+    height: 800px;
+    margin-top: 95px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* 🔥 LA CLAVE PARA QUE NO SE DEFORME */
+.hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* puedes ajustar si quieres */
+
+    z-index: 0;
+}
+
+/* Oscurecer imagen */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+/* Texto encima */
+.hero h1,
+.hero p {
+    position: relative;
+    z-index: 2;
+    color: white;
     text-align: center;
-    color: #fff;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url('https://placehold.co/1200x500') center/cover no-repeat;
-    background-size: cover;
-    margin-top: 95px;
 }
 
 .hero h1 {
-    font-size: 42px;
+    font-size: 48px;
     margin-bottom: 10px;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
 }
 
 .hero p {
-    font-size: 18px;
-    opacity: 0.9;
+    font-size: 20px;
 }
 
 /* ===== CONTENIDO ===== */

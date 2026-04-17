@@ -29,6 +29,7 @@ html {
 body {
     background: var(--fondo-claro);
     overflow-x: auto;
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -165,12 +166,49 @@ body {
     opacity: 1;
 }
 
+/* impac-box */
 .impact-box {
-    background: var(--amarillo-suave);
-    padding: 30px;
     text-align: center;
-    font-weight: bold;
-    color: #000;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, var(--azul-principal), var(--azul));
+    color: white;
+}
+
+.impact-box h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.impact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.impact-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.impact-card span {
+    font-size: 2rem;
+}
+
+.impact-card h3 {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+.impact-card p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.impact-card:hover {
+    transform: translateY(-8px) scale(1.03);
 }
 
 /* ===== SECCIÓN VALORES ===== */

@@ -53,6 +53,7 @@ header.scrolled .logo-container img {
     flex-direction: column;
     line-height: 1.3;
 }
+
 .logo-text span:first-child {
     font-size: 18px;
     color: var(--amarillo);
@@ -62,6 +63,7 @@ header.scrolled .logo-container img {
     font-size: 20px;
     color: white;
 }
+
 header.scrolled .logo-text {
     font-size: 16px;
 }
@@ -93,6 +95,7 @@ nav a:hover {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    font-weight: bold;
 }
 
 .btn:hover,
@@ -187,6 +190,17 @@ nav a:hover {
         visibility: hidden;
         transition: 0.3s;
         z-index: 1400;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .img {
+        width: 100%;
+        height: auto;
     }
 
     .menu-overlay.active {
