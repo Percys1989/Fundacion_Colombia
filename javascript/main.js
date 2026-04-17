@@ -1,13 +1,14 @@
+const BASE_PATH = window.location.hostname.includes("github.io")
+  ? "/Fundacion_Colombia/"
+  : "/";
 document.addEventListener("DOMContentLoaded", () => {
-  // ── BASE GLOBAL ───────────────────────────────────────────
-  const BASE_PATH = window.location.hostname.includes("github.io")
-    ? "/Fundacion_Colombia/"
-    : "/";
+
   // ── CARGAR HEADER ────────────────────────────────────────
   fetch(BASE_PATH + "src/header.html")
     .then(res => res.text())
     .then(data => {
       document.getElementById("header").innerHTML = data;
+      activarMenu();
     });
   // LOGO
   const logo = document.querySelector(".logo-container img");
@@ -17,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".donate-btn").forEach(btn => {
     btn.href = BASE_PATH + "src/donaciones.html";
   });
-  activarMenu();
 });
 
 // ── CARGAR FOOTER ────────────────────────────────────────
@@ -25,7 +25,8 @@ fetch(BASE_PATH + "src/footer.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("footer").innerHTML = data;
-  });
+  })
+  .catch(err => console.error("Error al cargar el footer:", err));
 
 // ── INTERCEPTAR BOTÓN DONAR (fuera del nav) ──────────────
 document.addEventListener("click", function (e) {
