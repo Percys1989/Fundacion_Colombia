@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrega de Combo Hamburguesas - Funcofare</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styleheader.css">
+    <link rel="stylesheet" href="../css/stylefooter.css">
+    <link rel="stylesheet" href="../css/styleindex.css">
+    <link rel="stylesheet" href="../css/styleactividades.css">
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <div id="header"></div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Entrega de Combo Hamburguesas</h1>
+        <p>Ayudando a las familias vulnerables</p>
+    </section>
+
+    <!-- CONTENIDO -->
+    <div class="container">
+
+        <h2 class="year-title">📅 Año 2026</h2>
+
+        <!-- EVENTO JUNIO -->
+        <div class="event">
+            <h3>Evento Junio</h3>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="cambiarTab(this, 'fotos-junio')">
+                    <i class="fas fa-images"></i> Fotos
+                </button>
+                <button class="tab-btn" onclick="cambiarTab(this, 'videos-junio')">
+                    <i class="fas fa-video"></i> Videos
+                </button>
+            </div>
+
+            <div class="tab-panel active" id="fotos-junio">
+                <div class="gallery">
+                    <img src="https://placehold.co/400x300/png" alt="Ropaton Junio 2026">
+                    <img src="https://placehold.co/400x300/png" alt="Ropaton Junio 2026">
+                    <img src="https://placehold.co/400x300/png" alt="Ropaton Junio 2026">
+                    <img src="https://placehold.co/400x300/png" alt="Ropaton Junio 2026">
+                    <img src="https://placehold.co/400x300/png" alt="Ropaton Junio 2026">
+                    <img src="https://placehold.co/400x300/png" alt="Ropaton Junio 2026">
+                </div>
+            </div>
+
+            <div class="tab-panel" id="videos-junio">
+                <div class="gallery">
+                    <!-- Reemplaza src con la ruta real de tus videos -->
+                    <video controls>
+                        <source src="" type="video/mp4">
+                    </video>
+                    <video controls>
+                        <source src="" type="video/mp4">
+                    </video>
+                </div>
+                <!-- Descomenta esto si aún no tienes videos -->
+                <div class="empty-msg">
+                    <i class="fas fa-video-slash"></i>
+                    Próximamente videos de este evento
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <a href="https://wa.me/573001234567" class="whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> Habla con nosotros
+    </a>
+    <div id="footer"></div>
+    <!-- BOTÓN IR ARRIBA -->
+    <button class="top-btn" id="topBtn" onclick="scrollToTop()">↑</button>
+    <div class="footer-bottom">
+        <p>© 2026 Fundación Colombia Familias Resilientes. Todos los derechos reservados.</p>
+    </div>
+
+    <script src="../javascript/main.js"></script>
+
+</body>
+
+</html>

@@ -12,9 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (logo) { logo.src = BASE_PATH + "imagenes/Logo.png"; }
       activarMenu();
     });
-  // LOGO
-
-
   // BOTÓN DONAR
   document.querySelectorAll(".donate-btn").forEach(btn => {
     btn.href = BASE_PATH + "src/donaciones.html";
