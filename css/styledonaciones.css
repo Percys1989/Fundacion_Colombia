@@ -47,7 +47,9 @@
     transition: 0.3s;
 }
 
-.don-step.active { opacity: 1; }
+.don-step.active {
+    opacity: 1;
+}
 
 .don-step-num {
     width: 36px;
@@ -63,8 +65,13 @@
     transition: 0.3s;
 }
 
-.don-step.active .don-step-num  { background: var(--azul-principal); }
-.don-step.done   .don-step-num  { background: #27ae60; }
+.don-step.active .don-step-num {
+    background: var(--azul-principal);
+}
+
+.don-step.done .don-step-num {
+    background: #27ae60;
+}
 
 .don-step span {
     font-size: 11px;
@@ -96,11 +103,20 @@
     animation: fadePanel 0.35s ease;
 }
 
-.don-panel.active { display: block; }
+.don-panel.active {
+    display: block;
+}
 
 @keyframes fadePanel {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .don-title {
@@ -131,7 +147,9 @@
     margin-bottom: 8px;
 }
 
-.req { color: var(--rojo); }
+.req {
+    color: var(--rojo);
+}
 
 .don-field input[type="text"],
 .don-field input[type="email"],
@@ -174,14 +192,38 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.tipo-btn i       { font-size: 26px; color: #aaa; transition: 0.3s; }
-.tipo-btn strong  { font-size: 15px; color: #333; }
-.tipo-btn small   { font-size: 11px; color: #999; }
+.tipo-btn i {
+    font-size: 26px;
+    color: #aaa;
+    transition: 0.3s;
+}
 
-.tipo-btn:hover                { border-color: var(--azul-principal); }
-.tipo-btn.active               { border-color: var(--azul-principal); background: #e8f0fe; }
-.tipo-btn.active i             { color: var(--azul-principal); }
-.tipo-btn.active strong        { color: var(--azul-principal); }
+.tipo-btn strong {
+    font-size: 15px;
+    color: #333;
+}
+
+.tipo-btn small {
+    font-size: 11px;
+    color: #999;
+}
+
+.tipo-btn:hover {
+    border-color: var(--azul-principal);
+}
+
+.tipo-btn.active {
+    border-color: var(--azul-principal);
+    background: #e8f0fe;
+}
+
+.tipo-btn.active i {
+    color: var(--azul-principal);
+}
+
+.tipo-btn.active strong {
+    color: var(--azul-principal);
+}
 
 /* ── MONTOS ── */
 .don-montos {
@@ -203,8 +245,16 @@
     color: #444;
 }
 
-.don-montos .monto-btn:hover  { border-color: var(--azul-principal); color: var(--azul-principal); }
-.don-montos .monto-btn.active { background: var(--azul-principal); border-color: var(--azul-principal); color: #fff; }
+.don-montos .monto-btn:hover {
+    border-color: var(--azul-principal);
+    color: var(--azul-principal);
+}
+
+.don-montos .monto-btn.active {
+    background: var(--azul-principal);
+    border-color: var(--azul-principal);
+    color: #fff;
+}
 
 /* ── BOTONES ── */
 .don-btn-primary {
@@ -255,7 +305,10 @@
     white-space: nowrap;
 }
 
-.don-btn-secondary:hover { border-color: #999; color: #333; }
+.don-btn-secondary:hover {
+    border-color: #999;
+    color: #333;
+}
 
 .don-btn-group {
     display: flex;
@@ -264,7 +317,10 @@
     align-items: center;
 }
 
-.don-btn-group .don-btn-primary { flex: 1; width: auto; }
+.don-btn-group .don-btn-primary {
+    flex: 1;
+    width: auto;
+}
 
 /* ── MÉTODOS DE PAGO ── */
 .don-metodos {
@@ -283,10 +339,20 @@
     transition: 0.3s;
 }
 
-.metodo-card:hover  { border-color: var(--azul-principal); transform: translateY(-3px); }
-.metodo-card.active { border-color: var(--azul-principal); background: #e8f0fe; }
+.metodo-card:hover {
+    border-color: var(--azul-principal);
+    transform: translateY(-3px);
+}
 
-.metodo-icon { font-size: 34px; margin-bottom: 10px; }
+.metodo-card.active {
+    border-color: var(--azul-principal);
+    background: #e8f0fe;
+}
+
+.metodo-icon {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
 
 .metodo-card h3 {
     font-size: 14px;
@@ -295,7 +361,10 @@
     margin-bottom: 4px;
 }
 
-.metodo-card p { font-size: 12px; color: #888; }
+.metodo-card p {
+    font-size: 12px;
+    color: #888;
+}
 
 /* ── INFO MÉTODO ── */
 .metodo-info {
@@ -308,7 +377,9 @@
     animation: fadePanel 0.3s ease;
 }
 
-.metodo-info.show { display: block; }
+.metodo-info.show {
+    display: block;
+}
 
 .metodo-info h4 {
     font-size: 15px;
@@ -331,8 +402,14 @@
     flex-wrap: wrap;
 }
 
-.info-fila:last-of-type { border-bottom: none; }
-.info-lbl { color: #888; flex-shrink: 0; }
+.info-fila:last-of-type {
+    border-bottom: none;
+}
+
+.info-lbl {
+    color: #888;
+    flex-shrink: 0;
+}
 
 .info-val {
     font-weight: 600;
@@ -356,7 +433,10 @@
     transition: 0.2s;
 }
 
-.btn-copiar:hover { background: var(--azul-principal); color: #fff; }
+.btn-copiar:hover {
+    background: var(--azul-principal);
+    color: #fff;
+}
 
 .metodo-nota {
     margin-top: 14px;
@@ -371,10 +451,17 @@
     line-height: 1.5;
 }
 
-.metodo-nota i { color: var(--amarillo-acento); margin-top: 2px; flex-shrink: 0; }
+.metodo-nota i {
+    color: var(--amarillo-acento);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
 
 /* QR */
-.qr-wrap { text-align: center; padding: 10px 0; }
+.qr-wrap {
+    text-align: center;
+    padding: 10px 0;
+}
 
 .qr-wrap img {
     width: 180px;
@@ -383,12 +470,21 @@
     margin-bottom: 10px;
 }
 
-.qr-wrap p { font-size: 13px; color: #666; }
+.qr-wrap p {
+    font-size: 13px;
+    color: #666;
+}
 
 /* ── PASO 3: GRACIAS ── */
-.don-gracias { text-align: center; padding: 10px 0; }
+.don-gracias {
+    text-align: center;
+    padding: 10px 0;
+}
 
-.gracias-icon { font-size: 60px; margin-bottom: 16px; }
+.gracias-icon {
+    font-size: 60px;
+    margin-bottom: 16px;
+}
 
 .don-gracias h2 {
     font-size: 24px;
@@ -397,7 +493,7 @@
     margin-bottom: 10px;
 }
 
-.don-gracias > p {
+.don-gracias>p {
     font-size: 15px;
     color: #555;
     margin-bottom: 24px;
@@ -419,9 +515,17 @@
     font-size: 13px;
 }
 
-.resumen-fila:last-child { border-bottom: none; }
-.resumen-fila span  { color: #888; }
-.resumen-fila strong { color: var(--oscuro); }
+.resumen-fila:last-child {
+    border-bottom: none;
+}
+
+.resumen-fila span {
+    color: #888;
+}
+
+.resumen-fila strong {
+    color: var(--oscuro);
+}
 
 .gracias-nota {
     font-size: 13px;
@@ -449,8 +553,14 @@
     pointer-events: none;
 }
 
-.don-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-.don-toast.exito { background: #27ae60; }
+.don-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.don-toast.exito {
+    background: #27ae60;
+}
 
 .metodo-card.disabled {
     opacity: 0.5;
@@ -471,11 +581,32 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 600px) {
-    .don-panel { padding: 24px 20px; }
-    .don-tipo  { grid-template-columns: 1fr 1fr; }
-    .don-metodos { grid-template-columns: 1fr 1fr; }
-    .don-btn-group { flex-direction: column; }
-    .don-btn-group .don-btn-secondary { width: 100%; justify-content: center; }
-    .don-steps span { display: none; }
-    .don-step-line { max-width: 40px; }
+    .don-panel {
+        padding: 24px 20px;
+    }
+
+    .don-tipo {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .don-metodos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .don-btn-group {
+        flex-direction: column;
+    }
+
+    .don-btn-group .don-btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .don-steps span {
+        display: none;
+    }
+
+    .don-step-line {
+        max-width: 40px;
+    }
 }

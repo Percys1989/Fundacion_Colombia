@@ -1,51 +1,88 @@
-const BASE_PATH = window.location.hostname.includes("github.io")
-  ? "/Fundacion_Colombia/"
-  : "/";
+// ── DETECCIÓN DE ENTORNO (funciona en GitHub Pages Y Hostinger) ──────────
+const isGithubPages = window.location.hostname.includes("github.io");
+const BASE_PATH = isGithubPages ? "/Fundacion_Colombia/" : "/";
+
+// Detecta si estamos en la raíz (index) o en una subcarpeta (src/)
+const enIndex = window.location.pathname.endsWith("Index.html")
+  || window.location.pathname.endsWith("index.html")
+  || window.location.pathname === BASE_PATH
+  || window.location.pathname === "/";
+
+const esDonaciones = window.location.pathname.includes("donaciones.html");
+
+// Ruta al index y a donaciones según ubicación actual
+const rutaIndex = enIndex ? "" : "../index.html";
+const rutaDonaciones = enIndex ? "src/donaciones.html" : "donaciones.html";
+
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ── CARGAR HEADER ────────────────────────────────────────
-  fetch(BASE_PATH + "src/header.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("header").innerHTML = data;
-      const logo = document.querySelector(".logo-container img");
-      if (logo) { logo.src = BASE_PATH + "imagenes/Logo.png"; }
-      activarMenu();
-    });
-  // BOTÓN DONAR
-  document.querySelectorAll(".donate-btn").forEach(btn => {
-    btn.href = BASE_PATH + "src/donaciones.html";
-  });
-});
+  // ── CARGAR HEADER ──────────────────────────────────────────────────────
+  const headerEl = document.getElementById("header");
+  if (headerEl) {
+    fetch(BASE_PATH + "src/header.html")
+      .then(res => res.text())
+      .then(data => {
+        headerEl.outerHTML = data;
 
-// ── CARGAR FOOTER ────────────────────────────────────────
-fetch(BASE_PATH + "src/footer.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("footer").innerHTML = data;
-  })
-  .catch(err => console.error("Error al cargar el footer:", err));
+        // Logo
+        const logo = document.querySelector(".logo-container img");
+        if (logo) logo.src = BASE_PATH + "imagenes/Logo.png";
 
-// ── INTERCEPTAR BOTÓN DONAR (fuera del nav) ──────────────
-document.addEventListener("click", function (e) {
-  const btn = e.target.closest(".donate-btn");
-  if (btn && !btn.closest("#navMenu")) {
-    e.preventDefault();
-    window.location.href = BASE_PATH + "src/donaciones.html";
+        // Rellenar hrefs del nav según la página actual
+        document.querySelectorAll("#navMenu [data-link]").forEach(link => {
+          const seccion = link.dataset.link;
+          if (seccion === "footer") {
+            // Contacto: si estamos en index hace scroll, si no va al index
+            link.href = enIndex ? "#footer" : rutaIndex + "#footer";
+          } else {
+            link.href = enIndex ? "#" + seccion : rutaIndex + "#" + seccion;
+          }
+        });
+
+        // Botón Donar: ocultar si ya estamos en donaciones.html
+        const donarBtn = document.getElementById("donateBtnNav");
+        if (donarBtn) {
+          if (esDonaciones) {
+            donarBtn.style.display = "none";
+          } else {
+            donarBtn.href = enIndex ? "src/donaciones.html" : "donaciones.html";
+          }
+        }
+
+        activarMenu();
+      })
+      .catch(err => console.error("Error al cargar el header:", err));
+  }
+
+  // ── CARGAR FOOTER ──────────────────────────────────────────────────────
+  const footerEl = document.getElementById("footer");
+  if (footerEl) {
+    fetch(BASE_PATH + "src/footer.html")
+      .then(res => res.text())
+      .then(data => {
+        footerEl.outerHTML = data;
+      })
+      .catch(err => console.error("Error al cargar el footer:", err));
   }
 });
 
+// ── INTERCEPTAR CLICKS EN data-link (scroll suave en index) ──────────────
 document.addEventListener("click", function (e) {
   const link = e.target.closest("[data-link]");
+  if (!link) return;
 
-  if (link) {
+  const seccion = link.dataset.link;
+  const target = document.getElementById(seccion);
+
+  // Si la sección existe en esta página, hacer scroll suave
+  if (target) {
     e.preventDefault();
-    const section = link.dataset.link;
-    window.location.href = BASE_PATH + "#" + section;
+    target.scrollIntoView({ behavior: "smooth" });
   }
+  // Si no existe, deja que el href navegue normalmente al index con ancla
 });
 
-// ── SLIDER HERO ──────────────────────────────────────────
+// ── SLIDER HERO ──────────────────────────────────────────────────────────
 let index = 0;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
@@ -73,7 +110,7 @@ if (slides.length) {
   sliderEl?.addEventListener('mouseleave', () => { autoSlide = setInterval(nextSlide, 4000); });
 }
 
-// ── MODAL PUBLICIDAD (una vez por sesión) ────────────────
+// ── MODAL PUBLICIDAD (una vez por sesión) ─────────────────────────────────
 const modal = document.getElementById("modal");
 const cerrarBtn = document.getElementById("cerrarModal");
 
@@ -88,7 +125,7 @@ const closeModal = () => { if (modal) modal.style.display = "none"; };
 cerrarBtn?.addEventListener("click", closeModal);
 modal?.addEventListener("click", e => { if (e.target === modal) closeModal(); });
 
-// ── SCROLL ───────────────────────────────────────────────
+// ── SCROLL ────────────────────────────────────────────────────────────────
 const topBtn = document.getElementById("topBtn");
 
 window.addEventListener("scroll", () => {
@@ -99,7 +136,7 @@ window.addEventListener("scroll", () => {
 
 window.scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-// ── HEADER SCROLL (respeta menú abierto) ─────────────────
+// ── HEADER SCROLL ─────────────────────────────────────────────────────────
 function updateHeader() {
   const header = document.querySelector("header");
   const navMenu = document.getElementById("navMenu");
@@ -113,7 +150,7 @@ function updateHeader() {
   }
 }
 
-// ── MENÚ HAMBURGUESA ─────────────────────────────────────
+// ── MENÚ HAMBURGUESA ──────────────────────────────────────────────────────
 function activarMenu() {
   const menuToggle = document.getElementById("menuToggle");
   const navMenu = document.getElementById("navMenu");
@@ -148,7 +185,7 @@ function activarMenu() {
   });
 }
 
-// ── ANIMACIONES DE SCROLL (info-split) ───────────────────
+// ── ANIMACIONES DE SCROLL ─────────────────────────────────────────────────
 function checkSections() {
   const trigger = window.innerHeight * 0.85;
   document.querySelectorAll('.info-split').forEach(sec => {
@@ -159,7 +196,7 @@ function checkSections() {
 }
 checkSections();
 
-// ── SLIDER DE VALORES ────────────────────────────────────
+// ── SLIDER DE VALORES ─────────────────────────────────────────────────────
 const valores = [
   { nombre: 'Amor', icono: '❤️', desc: 'Servimos con un corazón dispuesto, siendo instrumentos de esperanza y reflejando el valor de cada persona.' },
   { nombre: 'Solidaridad', icono: '🤝', desc: 'Nos comprometemos con las necesidades de los demás, actuando con generosidad y sentido humano.' },
@@ -177,15 +214,15 @@ if (track) {
     const card = document.createElement('div');
     card.className = 'valor-card';
     card.innerHTML = `
-        <div class="valor-icon">${v.icono}</div>
-        <h3>${v.nombre}</h3>
-        <p>${v.desc}</p>
-      `;
+      <div class="valor-icon">${v.icono}</div>
+      <h3>${v.nombre}</h3>
+      <p>${v.desc}</p>
+    `;
     track.appendChild(card);
   });
 }
 
-// ── BOTONES DE MONTO ─────────────────────────────────────
+// ── BOTONES DE MONTO ──────────────────────────────────────────────────────
 const montoBtns = document.querySelectorAll(".monto-btn");
 const montoInput = document.getElementById("montoInput");
 
@@ -201,7 +238,7 @@ montoBtns.forEach(btn => {
   });
 });
 
-// ── FORMULARIO DONACIÓN ──────────────────────────────────
+// ── FORMULARIO DONACIÓN ───────────────────────────────────────────────────
 const formDonacion = document.getElementById("formDonacion");
 if (formDonacion) {
   formDonacion.addEventListener("submit", (e) => {
@@ -218,7 +255,6 @@ if (formDonacion) {
       return;
     }
 
-    // Resaltar la tarjeta del método elegido
     const metodoMap = { "Transferencia": 0, "QR": 1, "PSE": 2 };
     const cards = document.querySelectorAll('.donacion-card');
     cards.forEach(c => c.style.border = "2px solid transparent");
@@ -232,7 +268,7 @@ if (formDonacion) {
   });
 }
 
-// ── PESTAÑAS ACTIVIDADES ─────────────────────────────────
+// ── PESTAÑAS ACTIVIDADES ──────────────────────────────────────────────────
 window.cambiarTab = function (btnClickeado, panelId) {
   const evento = btnClickeado.closest('.event');
   evento.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
