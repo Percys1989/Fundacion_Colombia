@@ -315,7 +315,7 @@
         }
 
         // ── Ir al paso 3 ──
-        function irPaso3() {
+        async function irPaso3() {
             if (!donacion.metodo) { toast('Por favor selecciona un método de pago.'); return; }
 
             const referencia = document.getElementById('inputReferencia').value.trim();
@@ -325,6 +325,21 @@
                 return;
             }
             donacion.referencia = referencia;
+
+            const btnConfirmar = document.getElementById('btnConfirmar');
+            const textoOriginal = btnConfirmar.innerHTML;
+            btnConfirmar.disabled = true;
+            btnConfirmar.innerHTML = 'Validando donación...';
+
+            try {
+                await enviarASheets();
+            } catch (error) {
+                console.error('Error al registrar la donación:', error);
+                toast('No pudimos confirmar tu donación. Inténtalo nuevamente en unos segundos.');
+                btnConfirmar.disabled = false;
+                btnConfirmar.innerHTML = textoOriginal;
+                return;
+            }
 
             const fmt = n => Number(n).toLocaleString('es-CO', {
                 style: 'currency', currency: 'COP', minimumFractionDigits: 0
@@ -344,7 +359,6 @@
             `;
 
             setPanel(3);
-            enviarASheets();
         }
 
         // ── Volver al paso 1 ──
@@ -371,13 +385,7 @@
         }
 
         // ── Enviar a Google Sheets vía GET (método confirmado que funciona) ──
-        function enviarASheets() {
-            if (SHEETS_URL === "PEGA_AQUI_TU_URL_DE_APPS_SCRIPT") {
-                console.warn("⚠️ Configura la URL de Apps Script.");
-                return;
-            }
-
-            // JSONP — único método que evita el 403 de Google
+        async function enviarASheets() {
             const params = new URLSearchParams({
                 nombre: donacion.nombre,
                 correo: donacion.correo,
@@ -385,25 +393,16 @@
                 tipo: donacion.tipo,
                 monto: donacion.monto,
                 metodo: donacion.metodo,
-                referencia: donacion.referencia || '',
-                callback: 'respuestaSheets'
+                referencia: donacion.referencia || ''
             });
 
-            // Función que recibe la respuesta
-            window.respuestaSheets = function (data) {
-                if (data.resultado === 'ok') {
-                    console.log('✅ Donación registrada en Google Sheets');
-                }
-                // Limpiar el script del DOM
-                const s = document.getElementById('jsonpScript');
-                if (s) s.remove();
-            };
-
-            // Crear script tag con la URL (JSONP no tiene restricciones CORS)
-            const script = document.createElement('script');
-            script.id = 'jsonpScript';
-            script.src = SHEETS_URL + '?' + params.toString();
-            document.body.appendChild(script);
+            await fetch(SHEETS_URL + '?' + params.toString(), {
+                method: 'GET',
+                mode: 'no-cors'
+            });
+            // no-cors devuelve una "opaque response" — no podemos leer
+            // el body, pero si llegamos aquí sin excepción, la petición
+            // salió bien ✅
         }
 
         // ── Copiar al portapapeles ──
