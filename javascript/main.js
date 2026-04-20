@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Logo
         const logo = document.querySelector(".logo-container img");
-        if (logo) logo.src = BASE_PATH + "imagenes/Logo.png";
+        if (logo) logo.src = BASE_PATH + "imagenes/Logo1.jpg";
 
         // Rellenar hrefs del nav según la página actual
         document.querySelectorAll("#navMenu [data-link]").forEach(link => {
