@@ -1,7 +1,7 @@
 /* ===== HERO ===== */
 .hero {
     position: relative;
-    height: 800px;
+    width: 100%;
     margin-top: 95px;
     overflow: hidden;
     display: flex;
@@ -10,16 +10,18 @@
     align-items: center;
 }
 
-/* 🔥 LA CLAVE PARA QUE NO SE DEFORME */
-.hero img {
-    position: absolute;
-    top: 0;
-    left: 0;
+.hero picture {
     width: 100%;
-    height: 100%;
+    display: block;
+    line-height: 0;
+}
+
+.hero picture img {
+    width: 100%;
+    height: auto;
+    display: block;
     object-fit: cover;
-    object-position: center top;
-    z-index: 0;
+    object-position: center center;
 }
 
 /* Oscurecer imagen */
@@ -48,6 +50,44 @@
 
 .hero p {
     font-size: 20px;
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        margin-top: 80px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        margin-top: 70px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        margin-top: 65px;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
 }
 
 /* ===== CONTENIDO ===== */
@@ -168,4 +208,70 @@
     font-size: 36px;
     margin-bottom: 10px;
     color: #ccc;
+}
+
+/* ===== OVERLAY VER MÁS GALERÍA ===== */
+.gallery-vermas {
+    position: relative;
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.gallery-vermas img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    border-radius: 10px;
+}
+
+.gallery-vermas:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.5);
+}
+
+.vermas-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(13, 71, 161, 0.75);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.gallery-vermas:hover .vermas-overlay {
+    opacity: 1;
+}
+
+.vermas-overlay i {
+    font-size: 36px;
+    color: #fff;
+}
+
+.vermas-overlay span {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* En móvil siempre visible (sin hover) */
+@media (max-width: 768px) {
+    .vermas-overlay {
+        opacity: 1;
+        background: rgba(13, 71, 161, 0.6);
+    }
+
+    .gallery-vermas img {
+        filter: brightness(0.75);
+    }
 }

@@ -21,7 +21,16 @@
 
     <!-- HERO -->
     <section class="hero">
-        <img src="../imagenes/banner_hamburguesas.jpg" alt="">
+        <picture>
+            <!-- Móvil: hasta 480px → imagen vertical o recortada -->
+            <source srcset="../imagenes/banner_ropaton_movil.webp" media="(max-width: 480px)">
+            <!-- Tablet: hasta 768px → imagen mediana -->
+            <source srcset="../imagenes/banner_ropaton_tablet.webp" media="(max-width: 768px)">
+            <!-- Portátil: hasta 1024px -->
+            <source srcset="../imagenes/banner_ropaton_laptop.webp" media="(max-width: 1024px)">
+            <!-- Desktop: imagen completa por defecto -->
+            <img src="../imagenes/banner_ropaton1.webp" alt="Ropaton">
+        </picture>
     </section>
 
     <!-- CONTENIDO -->
@@ -29,31 +38,40 @@
 
         <h2 class="year-title">📅 Año 2026</h2>
 
-        <!-- EVENTO JUNIO -->
+        <!-- EVENTO ABRIL -->
         <div class="event">
-            <h3>Evento Junio</h3>
+            <h3>Evento Abril</h3>
 
             <div class="tabs">
-                <button class="tab-btn active" onclick="cambiarTab(this, 'fotos-junio')">
+                <button class="tab-btn active" onclick="cambiarTab(this, 'fotos-abril')">
                     <i class="fas fa-images"></i> Fotos
                 </button>
-                <button class="tab-btn" onclick="cambiarTab(this, 'videos-junio')">
+                <button class="tab-btn" onclick="cambiarTab(this, 'videos-abril')">
                     <i class="fas fa-video"></i> Videos
                 </button>
             </div>
 
-            <div class="tab-panel active" id="fotos-junio">
+            <div class="tab-panel active" id="fotos-abril">
                 <div class="gallery">
-                    <img src="https://placehold.co/400x300/png" alt="Ropaton Junio 2026">
-                    <img src="https://placehold.co/400x300/png" alt="Ropaton Junio 2026">
-                    <img src="https://placehold.co/400x300/png" alt="Ropaton Junio 2026">
-                    <img src="https://placehold.co/400x300/png" alt="Ropaton Junio 2026">
-                    <img src="https://placehold.co/400x300/png" alt="Ropaton Junio 2026">
-                    <img src="https://placehold.co/400x300/png" alt="Ropaton Junio 2026">
+                    <img src="https://placehold.co/400x300/png" alt="Ropaton Abril 2026">
+                    <img src="https://placehold.co/400x300/png" alt="Ropaton Abril 2026">
+                    <img src="https://placehold.co/400x300/png" alt="Ropaton Abril 2026">
+                    <img src="https://placehold.co/400x300/png" alt="Ropaton Abril 2026">
+                    <img src="https://placehold.co/400x300/png" alt="Ropaton Abril 2026">
+                    <img src="https://placehold.co/400x300/png" alt="Ropaton Abril 2026">
+                    <img src="https://placehold.co/400x300/png" alt="Ropaton Abril 2026">
+                    <!-- ÚLTIMA IMAGEN CON OVERLAY VER MÁS -->
+                    <a href="https://www.facebook.com/TU_ALBUM_AQUI" target="_blank" class="gallery-vermas">
+                        <img src="https://placehold.co/400x300/png" alt="Ropaton Marzo 2026">
+                        <div class="vermas-overlay">
+                            <i class="fab fa-facebook"></i>
+                            <span>Ver álbum completo</span>
+                        </div>
+                    </a>
                 </div>
             </div>
 
-            <div class="tab-panel" id="videos-junio">
+            <div class="tab-panel" id="videos-abril">
                 <div class="gallery">
                     <!-- Reemplaza src con la ruta real de tus videos -->
                     <video controls>
@@ -70,8 +88,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
     <a href="https://wa.me/573001234567" class="whatsapp" target="_blank">
