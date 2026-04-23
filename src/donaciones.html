@@ -46,29 +46,40 @@
 
         <!-- TARJETA PRINCIPAL -->
         <div class="don-card">
-
+            <div class="don-progress">
+                <div class="don-progress-fill" id="progressFill" style="width: 33%"></div>
+            </div>
             <!-- ══ PASO 1: DATOS ══ -->
             <div class="don-panel active" id="panel1">
                 <h2 class="don-title">📝 Tus datos</h2>
                 <p class="don-subtitle">Completa la información para registrar tu donación</p>
 
                 <div class="don-form">
-
+                    <p class="don-seccion-label">Información personal</p>
                     <div class="don-field">
                         <label>Nombre completo <span class="req">*</span></label>
-                        <input type="text" id="inputNombre" placeholder="Ej: María García López">
+                        <div class="don-input-wrap">
+                            <span class="don-input-icon"><i class="fas fa-user"></i></span>
+                            <input type="text" id="inputNombre" placeholder="Ej: María García López">
+                        </div>
                     </div>
 
                     <div class="don-field">
                         <label>Correo electrónico <span class="req">*</span></label>
-                        <input type="email" id="inputCorreo" placeholder="correo@ejemplo.com">
+                        <div class="don-input-wrap">
+                            <span class="don-input-icon"><i class="fas fa-envelope"></i></span>
+                            <input type="email" id="inputCorreo" placeholder="correo@ejemplo.com">
+                        </div>
                     </div>
 
                     <div class="don-field">
                         <label>Número de celular <span class="req">*</span></label>
-                        <input type="tel" id="inputCelular" placeholder="Ej: 3001234567" maxlength="10">
+                        <div class="don-input-wrap">
+                            <span class="don-input-icon"><i class="fas fa-mobile-alt"></i></span>
+                            <input type="tel" id="inputCelular" placeholder="Ej: 3001234567" maxlength="10">
+                        </div>
                     </div>
-
+                    <p class="don-seccion-label">Tipo y monto</p>
                     <div class="don-field">
                         <label>Tipo de donación <span class="req">*</span></label>
                         <div class="don-tipo">

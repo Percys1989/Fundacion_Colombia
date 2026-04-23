@@ -276,3 +276,16 @@ window.cambiarTab = function (btnClickeado, panelId) {
   btnClickeado.classList.add('active');
   document.getElementById(panelId).classList.add('active');
 };
+
+function setPanel(n) {
+  document.querySelectorAll('.don-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel' + n).classList.add('active');
+  document.querySelectorAll('.don-step').forEach((s, i) => {
+    s.classList.toggle('active', i < n);
+    s.classList.toggle('done', i < n - 1);
+  });
+  // ✅ Actualiza barra de progreso
+  const porcentaje = { 1: 33, 2: 66, 3: 100 };
+  document.getElementById('progressFill').style.width = porcentaje[n] + '%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}

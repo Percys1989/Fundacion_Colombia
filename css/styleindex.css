@@ -1,4 +1,12 @@
-/* RESET GENERAL */
+/* ═══════════════════════════════════════════════════════════
+   FUNDACIÓN COLOMBIA FAMILIAS RESILIENTES
+   styleindex.css — Estilos del Index
+   Orden: Reset → Variables → Base → Header → Modal → Hero
+          → Impacto → Quiénes/Info-Split → Valores → Actividades → Footer
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* ── 1. RESET GENERAL ─── */
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +14,8 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
+/* ── 2. VARIABLES GLOBALES ──── */
 :root {
     --amarillo: #FFC107;
     --amarillo-suave: #FFD54F;
@@ -22,18 +32,154 @@
     --texto: #333;
 }
 
+
+/* ── 3. BASE ─── */
 html {
     scroll-behavior: smooth;
 }
 
 body {
     background: var(--fondo-claro);
-    overflow-x: auto;
+    overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
 }
 
 
-/* HERO SLIDER */
+/* ── 4. MODAL ──── */
+/* Aparece antes que todo al cargar la página */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.modal-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn .4s ease;
+    position: relative;
+    max-height: 92vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-box img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    max-height: 45vh;
+    object-fit: contain;
+    object-position: center;
+}
+
+.modal-box h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.modal-box p {
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+    color: #555;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e53935;
+    color: #fff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 22px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+}
+
+.modal-close:hover {
+    background: #c62828;
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Modal */
+@media (max-height: 700px) {
+    .modal-box {
+        max-height: 95vh;
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .modal-box img {
+        max-height: 35vh;
+    }
+
+    .modal-box h3 {
+        font-size: 15px;
+    }
+
+    .modal-box p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-box {
+        padding: 15px;
+        gap: 8px;
+    }
+
+    .modal-box img {
+        max-height: 38vh;
+    }
+
+    .donate-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+    }
+}
+
+
+/* ── 5. HERO SLIDER ─── */
 .slider {
     position: relative;
     width: 100%;
@@ -49,10 +195,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-
-    /* 🔥 capa oscura */
     background: rgba(0, 0, 0, 0.45);
-
     z-index: 5;
 }
 
@@ -72,6 +215,7 @@ body {
     opacity: 1;
 }
 
+/* Overlay de texto sobre el slider */
 .overlay {
     padding: 40px;
     border-radius: 15px;
@@ -112,7 +256,7 @@ body {
     background: #fff;
 }
 
-/* CONTROLES SLIDER */
+/* Controles prev/next */
 .prev,
 .next {
     position: absolute;
@@ -142,6 +286,7 @@ body {
     right: 10px;
 }
 
+/* Dots */
 .dots {
     position: absolute;
     bottom: 20px;
@@ -166,7 +311,8 @@ body {
     opacity: 1;
 }
 
-/* impac-box */
+
+/* ── 6. IMPACTO SOCIAL ───── */
 .impact-box {
     text-align: center;
     padding: 60px 20px;
@@ -211,7 +357,102 @@ body {
     transform: translateY(-8px) scale(1.03);
 }
 
-/* ===== SECCIÓN VALORES ===== */
+
+/* ── 7. SECCIONES INFO (Quiénes, Propósito, Misión, Visión) ── */
+.info-split {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 10%;
+    gap: 50px;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* Texto */
+.info-text {
+    flex: 1;
+    transform: translateX(-80px) scale(0.95);
+    opacity: 0;
+    transition: all 1s ease;
+    padding: 50px;
+}
+
+.info-text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.info-text h2::after {
+    content: '';
+    width: 100%;
+    height: 5px;
+    background: var(--amarillo-acento);
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    border-radius: 5px;
+}
+
+.info-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* Imagen */
+.info-img {
+    flex: 0.8;
+    transform: translateX(80px) scale(0.95);
+    opacity: 0;
+    transition: all 1s ease;
+    border-radius: 20px;
+    margin: 40px auto;
+    max-width: 1000px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .3));
+}
+
+.info-img img {
+    width: 100%;
+    border-radius: 15px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .3));
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+}
+
+/* Animación al hacer scroll */
+.info-text,
+.info-img {
+    transition: all 0.8s ease;
+}
+
+.info-split.active .info-text,
+.info-split.active .info-img {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+}
+
+/* Ola decorativa inferior */
+.wave-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 120px;
+    overflow: hidden;
+}
+
+.wave-bottom svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ── 8. VALORES ──── */
 .valores-section {
     padding: 100px 50px;
     text-align: center;
@@ -239,6 +480,7 @@ body {
     border-radius: 5px;
 }
 
+/* Colores corazones animados */
 .amarillo {
     color: gold;
     text-shadow: 2px 2px 5px orange;
@@ -254,7 +496,6 @@ body {
     text-shadow: 2px 2px 5px darkred;
 }
 
-/* Animación para que latan */
 .corazon {
     display: inline-block;
     animation: latido 1s infinite;
@@ -272,23 +513,14 @@ body {
     }
 }
 
-/* TRACK WRAPPER oculta lo que sale del área */
+/* Carrusel de valores */
 .track-wrapper {
     overflow: hidden;
     width: 90%;
-    mask-image: linear-gradient(to right,
-            transparent 0%,
-            black 12%,
-            black 88%,
-            transparent 100%);
-    -webkit-mask-image: linear-gradient(to right,
-            transparent 0%,
-            black 12%,
-            black 88%,
-            transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
 }
 
-/* TRACK: fila de tarjetas que se mueve */
 .track {
     display: flex;
     gap: 24px;
@@ -296,7 +528,6 @@ body {
     animation: scroll-left 32s linear infinite;
 }
 
-/* Al pasar el mouse se pausa */
 .track:hover {
     animation-play-state: paused;
 }
@@ -311,7 +542,7 @@ body {
     }
 }
 
-/* TARJETA */
+/* Tarjeta de valor */
 .valor-card {
     background: #fff;
     border-radius: 16px;
@@ -329,7 +560,6 @@ body {
     transform: translateY(-6px);
 }
 
-/* CÍRCULO DEL ÍCONO */
 .valor-icon {
     width: 70px;
     height: 70px;
@@ -356,11 +586,23 @@ body {
     text-align: center;
 }
 
-/* ACTIVIDADES */
+
+/* ── 9. ACTIVIDADES ─────*/
 .actividades {
     padding: 100px 20px;
     text-align: center;
     position: relative;
+}
+
+.actividades::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #ffffff, #f0f8ff);
+    z-index: -1;
 }
 
 .actividades h2 {
@@ -381,18 +623,7 @@ body {
     border-radius: 5px;
 }
 
-.actividades::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #ffffff, #f0f8ff);
-    z-index: -1;
-}
-
-/* CARDS ACTIVIDADES */
+/* Cards */
 .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -448,160 +679,4 @@ body {
 .card-pro:hover .btn-card {
     background: #000;
     color: #fff;
-}
-
-/* MODAL */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.modal-box {
-    background: #fff;
-    padding: 25px;
-    border-radius: 15px;
-    max-width: 420px;
-    width: 90%;
-    text-align: center;
-    margin-top: 15px;
-    animation: fadeIn .4s ease;
-    position: relative;
-}
-
-.modal-box img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #e53935;
-    color: #fff;
-    border: none;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-    z-index: 10;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(.8)
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1)
-    }
-}
-
-/* 🔥 SECCIONES CON IMAGEN */
-.info-split {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 100px 10%;
-    gap: 50px;
-    background: #fff;
-    overflow: hidden;
-}
-
-.wave-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 120px;
-    overflow: hidden;
-}
-
-
-.wave-bottom svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-/* TEXTO INFO SPLIT */
-.info-text {
-    flex: 1;
-    transform: translateX(-80px) scale(0.95);
-    opacity: 0;
-    transition: all 1s ease;
-    padding: 50px;
-}
-
-
-.info-text,
-.info-img {
-    transition: all 0.8s ease;
-    /* 🔥 un poco más suave */
-}
-
-/* IMAGEN */
-.info-img {
-    flex: 0.8;
-    transform: translateX(80px) scale(0.95);
-    opacity: 0;
-    transition: all 1s ease;
-    border-radius: 20px;
-    margin: 40px auto;
-    max-width: 1000px;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .3));
-}
-
-
-.info-img img {
-    width: 100%;
-    border-radius: 15px;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, .3));
-    transform: scale(1.1);
-    transition: all 0.5s ease;
-}
-
-/* CUANDO APARECE EN PANTALLA */
-.info-split.active .info-text,
-.info-split.active .info-img {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-}
-
-/* TITULOS */
-.info-text h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.info-text h2::after {
-    content: '';
-    width: 100%;
-    height: 5px;
-    background: var(--amarillo-acento);
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    border-radius: 5px;
-}
-
-.info-text p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.7;
-    text-align: justify;
 }
