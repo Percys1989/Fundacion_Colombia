@@ -268,7 +268,7 @@ if (formDonacion) {
   });
 }
 
-// ── PESTAÑAS ACTIVIDADES ──────────────────────────────────────────────────
+// ── PESTAÑAS ACTIVIDADES ────
 window.cambiarTab = function (btnClickeado, panelId) {
   const evento = btnClickeado.closest('.event');
   evento.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -289,3 +289,56 @@ function setPanel(n) {
   document.getElementById('progressFill').style.width = porcentaje[n] + '%';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// ---detectar imagenes dominantes para adaptar colores---
+function getDominantColor(img) {
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = img.naturalWidth;
+  canvas.height = img.naturalHeight;
+
+  ctx.drawImage(img, 0, 0);
+
+  const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+
+  let r = 0, g = 0, b = 0, count = 0;
+
+  // 🔥 Tomamos muestras (no todos los píxeles para optimizar)
+  for (let i = 0; i < data.length; i += 40) {
+    r += data[i];
+    g += data[i + 1];
+    b += data[i + 2];
+    count++;
+  }
+
+  r = Math.floor(r / count);
+  g = Math.floor(g / count);
+  b = Math.floor(b / count);
+
+  return `rgb(${r}, ${g}, ${b})`;
+}
+window.addEventListener("load", () => {
+  const img = document.getElementById("heroImg");
+  const hero = document.querySelector(".hero");
+
+  if (!img || !hero) return;
+
+  // Esperar a que cargue la imagen
+  if (img.complete) {
+    aplicarColor();
+  } else {
+    img.onload = aplicarColor;
+  }
+
+  function aplicarColor() {
+    const color = getDominantColor(img);
+
+    hero.style.background = `
+      linear-gradient(90deg, 
+        ${color} 0%, 
+        #0D47A1 50%, 
+        ${color} 100%)
+    `;
+  }
+});

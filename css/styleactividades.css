@@ -5,19 +5,21 @@
     margin-top: 95px;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(90deg, #0d47a1, #1565c0, #0d47a1);
 }
 
 .hero picture {
-    width: 100%;
-    display: block;
-    line-height: 0;
+    width: 80%;
+    z-index: 2;
+    box-shadow: -40px 0 60px rgba(13, 71, 161, 0.5, ),
+        40px 0 60px rgba(13, 71, 161, 0.5, );
 }
 
 .hero picture img {
     width: 100%;
+    border-radius: 15px;
     height: auto;
     display: block;
     object-fit: cover;
@@ -29,7 +31,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.15);
+    background: radial-gradient(circle, transparent 60%, rgba(13, 71, 161, 0.9) 100%);
     z-index: 1;
 }
 
