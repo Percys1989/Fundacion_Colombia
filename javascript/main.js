@@ -278,16 +278,27 @@ window.cambiarTab = function (btnClickeado, panelId) {
 };
 
 function setPanel(n) {
-  document.querySelectorAll('.don-panel').forEach(p => p.classList.remove('active'));
-  document.getElementById('panel' + n).classList.add('active');
-  document.querySelectorAll('.don-step').forEach((s, i) => {
-    s.classList.toggle('active', i < n);
-    s.classList.toggle('done', i < n - 1);
-  });
-  // ✅ Actualiza barra de progreso
-  const porcentaje = { 1: 33, 2: 66, 3: 100 };
-  document.getElementById('progressFill').style.width = porcentaje[n] + '%';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+    const panel = document.getElementById('panel' + n);
+    if (!panel) return;
+
+    document.querySelectorAll('.don-panel').forEach(p => p.classList.remove('active'));
+    panel.classList.add('active');
+
+    document.querySelectorAll('.don-step').forEach((s, i) => {
+        s.classList.toggle('active', i < n);
+        s.classList.toggle('done', i < n - 1);
+    });
+
+    const progressFill = document.getElementById('progressFill');
+    if (progressFill) {
+        const porcentaje = { 1: 33, 2: 66, 3: 100 };
+        progressFill.style.width = porcentaje[n] + '%';
+    }
+
+    // ✅ Solo hace scroll si estamos en donaciones.html
+    if (esDonaciones) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 }
 
 // ---detectar imagenes dominantes para adaptar colores---
@@ -342,3 +353,71 @@ window.addEventListener("load", () => {
     `;
   }
 });
+
+// ── FORMULARIO VOLUNTARIADO ───────────────
+function toggleDia(btn) {
+  btn.classList.toggle('active');
+}
+
+async function enviarVoluntario() {
+  const nombre = document.getElementById('volNombre').value.trim();
+  const apellido = document.getElementById('volApellido').value.trim();
+  const correo = document.getElementById('volCorreo').value.trim();
+  const celular = document.getElementById('volCelular').value.trim();
+  const actividad = document.getElementById('volActividad').value;
+
+  if (!nombre) { volToast('Por favor escribe tu nombre.'); return; }
+  if (!apellido) { volToast('Por favor escribe tu apellido.'); return; }
+  if (!correo || !correo.includes('@')) { volToast('Por favor escribe un correo válido.'); return; }
+  if (!celular || celular.length < 7) { volToast('Por favor escribe tu celular.'); return; }
+  if (!actividad) { volToast('Por favor selecciona una actividad.'); return; }
+
+  const dias = [...document.querySelectorAll('.vol-dia-btn.active')]
+    .map(b => b.textContent.trim()).join(', ');
+  if (!dias) { volToast('Por favor selecciona al menos un día disponible.'); return; }
+
+  const motivacion = document.getElementById('volMotivacion').value.trim();
+
+  const SHEETS_URL_VOL = "https://script.google.com/macros/s/AKfycbxDqBabJmgoB9ewHADnOU4Jc_o35ttWHJLghtH04ETL2KO_Zbdv7aLk4_INMVvcdBPJuw/exec";
+
+  const params = new URLSearchParams({
+    nombre: nombre + ' ' + apellido,
+    correo, celular, actividad,
+    disponibilidad: dias,
+    motivacion
+  });
+
+  await fetch(SHEETS_URL_VOL + '?' + params.toString(), {
+    method: 'GET', mode: 'no-cors'
+  });
+
+  document.getElementById('formVoluntario').style.display = 'none';
+  document.getElementById('volExito').style.display = 'block';
+
+  // ✅ Scroll suave al mensaje de éxito, NO al top de la página
+  document.getElementById('volExito').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function resetForm() {
+  document.getElementById('volNombre').value = '';
+  document.getElementById('volApellido').value = '';
+  document.getElementById('volCorreo').value = '';
+  document.getElementById('volCelular').value = '';
+  document.getElementById('volActividad').value = '';
+  document.getElementById('volMotivacion').value = '';
+  document.querySelectorAll('.vol-dia-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('formVoluntario').style.display = 'block';
+  document.getElementById('volExito').style.display = 'none';
+}
+
+function volToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'don-toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.classList.add('show'), 10);
+  setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => t.remove(), 300);
+  }, 3000);
+}

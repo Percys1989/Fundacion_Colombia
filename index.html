@@ -237,6 +237,144 @@
         </div>
     </section>
 
+    <!-- VOLUNTARIOS -->
+    <section class="vol-section" id="voluntarios">
+
+        <div class="vol-header">
+            <h2>Únete como Voluntario</h2>
+            <p>Sé parte del cambio — juntos transformamos vidas</p>
+        </div>
+
+        <div class="vol-grid">
+
+            <!-- IZQUIERDA: estadísticas + fotos -->
+            <div class="vol-fotos">
+
+                <div class="vol-stats">
+                    <div class="vol-stat">
+                        <strong>50+</strong>
+                        <span>Voluntarios activos</span>
+                    </div>
+                    <div class="vol-stat">
+                        <strong>12</strong>
+                        <span>Jornadas realizadas</span>
+                    </div>
+                    <div class="vol-stat">
+                        <strong>600+</strong>
+                        <span>Familias impactadas</span>
+                    </div>
+                </div>
+
+                <h3>Voluntarios en acción</h3>
+
+                <div class="vol-fotos-grid">
+                    <!-- ✏️ Reemplaza los src con tus fotos reales -->
+                    <div class="vol-foto-item">
+                        <img src="imagenes/voluntarios/vol1.jpg" alt="Voluntarios en acción"
+                            onerror="this.src='https://placehold.co/300x300/e8f0fe/0D47A1?text=Foto+1'">
+                    </div>
+                    <div class="vol-foto-item">
+                        <img src="imagenes/voluntarios/vol2.jpg" alt="Voluntarios en acción"
+                            onerror="this.src='https://placehold.co/300x300/e8f0fe/0D47A1?text=Foto+2'">
+                    </div>
+                    <div class="vol-foto-item">
+                        <img src="imagenes/voluntarios/vol3.jpg" alt="Voluntarios en acción"
+                            onerror="this.src='https://placehold.co/300x300/e8f0fe/0D47A1?text=Foto+3'">
+                    </div>
+                    <div class="vol-foto-item">
+                        <img src="imagenes/voluntarios/vol4.jpg" alt="Voluntarios en acción"
+                            onerror="this.src='https://placehold.co/300x300/e8f0fe/0D47A1?text=Foto+4'">
+                    </div>
+                    <div class="vol-foto-item">
+                        <img src="imagenes/voluntarios/vol5.jpg" alt="Voluntarios en acción"
+                            onerror="this.src='https://placehold.co/300x300/e8f0fe/0D47A1?text=Foto+5'">
+                    </div>
+                    <div class="vol-foto-item">
+                        <img src="imagenes/voluntarios/vol6.jpg" alt="Voluntarios en acción"
+                            onerror="this.src='https://placehold.co/300x300/e8f0fe/0D47A1?text=Foto+6'">
+                    </div>
+                </div>
+            </div>
+
+            <!-- DERECHA: formulario -->
+            <div class="vol-form-card">
+                <h3>Quiero ser voluntario</h3>
+                <p>Completa el formulario y nos pondremos en contacto contigo</p>
+
+                <form id="formVoluntario">
+
+                    <div class="vol-form-row">
+                        <div class="vol-field">
+                            <label>Nombre <span class="req">*</span></label>
+                            <input type="text" id="volNombre" placeholder="Tu nombre">
+                        </div>
+                        <div class="vol-field">
+                            <label>Apellido <span class="req">*</span></label>
+                            <input type="text" id="volApellido" placeholder="Tu apellido">
+                        </div>
+                    </div>
+
+                    <div class="vol-field">
+                        <label>Correo electrónico <span class="req">*</span></label>
+                        <input type="email" id="volCorreo" placeholder="correo@ejemplo.com">
+                    </div>
+
+                    <div class="vol-field">
+                        <label>Celular <span class="req">*</span></label>
+                        <input type="tel" id="volCelular" placeholder="Ej: 3001234567" maxlength="10"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </div>
+
+                    <div class="vol-field">
+                        <label>¿En qué actividades te gustaría participar?</label>
+                        <select id="volActividad">
+                            <option value="">Selecciona una opción</option>
+                            <option value="Ropaton">Ropaton</option>
+                            <option value="Almuerzos">Entrega de almuerzos</option>
+                            <option value="Hamburguesas">Entrega de hamburguesas</option>
+                            <option value="Juguetes">Entrega de juguetes</option>
+                            <option value="Halleluya">Halleluya para niños</option>
+                            <option value="Todas">Todas las anteriores</option>
+                        </select>
+                    </div>
+
+                    <div class="vol-field">
+                        <label>Disponibilidad</label>
+                        <div class="vol-disponibilidad">
+                            <button type="button" class="vol-dia-btn" onclick="toggleDia(this)">Fines de
+                                semana</button>
+                            <button type="button" class="vol-dia-btn" onclick="toggleDia(this)">Entre semana</button>
+                            <button type="button" class="vol-dia-btn" onclick="toggleDia(this)">Festivos</button>
+                        </div>
+                    </div>
+
+                    <div class="vol-field">
+                        <label>¿Por qué quieres ser voluntario?</label>
+                        <textarea id="volMotivacion" placeholder="Cuéntanos un poco sobre ti..."></textarea>
+                    </div>
+
+                    <button type="button" class="vol-btn-primary" onclick="enviarVoluntario()">
+                        Enviar solicitud <i class="fas fa-paper-plane"></i>
+                    </button>
+
+                </form>
+                <div class="vol-exito" id="volExito" style="display:none;">
+                    <div class="vol-exito-icon">🙏</div>
+                    <h3>¡Gracias por querer ser parte de nuestra gran Fundación!</h3>
+                    <p>Recibimos tu solicitud exitosamente. Pronto nos pondremos en contacto contigo. ¡Que Dios te
+                        bendiga! ❤️</p>
+                    <button onclick="resetForm()"
+                        style="background:#0D47A1; color:#fff; border:none; border-radius:25px; padding:12px 28px; font-size:13px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:8px; margin-top:12px; font-family:'Poppins',sans-serif; transition:0.3s;"
+                        onmouseover="this.style.background='#1565C0'; this.style.transform='translateY(-2px)'"
+                        onmouseout="this.style.background='#0D47A1'; this.style.transform='translateY(0)'">
+                        ↺ Registrar otro voluntario
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <a href="https://wa.me/573001234567" class="whatsapp" target="_blank">
         <i class="fab fa-whatsapp"></i> Habla con nosotros
     </a>
