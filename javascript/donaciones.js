@@ -4,6 +4,44 @@
 //  (la obtienes en Extensiones → Apps Script → Implementar)
 // ══════════════════════════════════════════════════════
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbyIXTnHoln60ygUcK8qmuwGuzRBFm8RuwhKRAWpeiXeP02bzTAKEgGMiXFI4CPS0kYTNg/exec";
+// ── PARTÍCULAS HERO ──
+const cv = document.getElementById('heroCanvas');
+if (cv) {
+    const ctx = cv.getContext('2d');
+
+    function resizeCanvas() {
+        cv.width = cv.offsetWidth;
+        cv.height = cv.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const particles = Array.from({ length: 50 }, () => ({
+        x: Math.random() * cv.width,
+        y: Math.random() * cv.height,
+        r: Math.random() * 2.5 + 0.5,
+        dx: (Math.random() - 0.5) * 0.4,
+        dy: (Math.random() - 0.5) * 0.4,
+        c: Math.random() > 0.5 ? '#FFC107' : '#ffffff'
+    }));
+
+    function drawParticles() {
+        ctx.clearRect(0, 0, cv.width, cv.height);
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = p.c;
+            ctx.globalAlpha = 0.6;
+            ctx.fill();
+            p.x += p.dx;
+            p.y += p.dy;
+            if (p.x < 0 || p.x > cv.width) p.dx *= -1;
+            if (p.y < 0 || p.y > cv.height) p.dy *= -1;
+        });
+        requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+}
 
 // Estado global de la donación
 let donacion = {
