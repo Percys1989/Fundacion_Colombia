@@ -1,6 +1,7 @@
 // ── DETECCIÓN DE ENTORNO (funciona en GitHub Pages Y Hostinger) ──────────
-const isGithubPages = window.location.hostname.includes("github.io");
-const BASE_PATH = isGithubPages ? "/Fundacion_Colombia/" : "/";
+const BASE_PATH = window.location.hostname.includes("github.io")
+  ? "/Fundacion_Colombia/"
+  : "/";
 
 // Detecta si estamos en la raíz (index) o en una subcarpeta (src/)
 const enIndex = window.location.pathname.endsWith("Index.html")
