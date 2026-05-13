@@ -176,6 +176,7 @@ body {
 
 
 /* ── 5. HERO SLIDER ── */
+
 .slider {
     position: relative;
     width: 100%;
@@ -185,11 +186,14 @@ body {
 }
 
 .slider::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 5;
+ content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      rgba(0,0,0,.55),
+      rgba(0,0,0,.55)
+    );
 }
 
 .slide {
@@ -323,6 +327,7 @@ body {
 
 .impact-card {
     background: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     padding: 30px;
     border-radius: 20px;
@@ -550,8 +555,8 @@ body {
 .track-wrapper {
     overflow: hidden;
     width: 90%;
-    mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
 }
 
 .track {
@@ -944,6 +949,28 @@ body {
 .vol-btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(13, 71, 161, 0.3);
+}
+
+.btn-reset-voluntario{
+    background:#0D47A1;
+    color:#fff;
+    border:none;
+    border-radius:25px;
+    padding:12px 28px;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:12px;
+    font-family:'Poppins',sans-serif;
+    transition:all .3s ease;
+    }
+
+.btn-reset-voluntario:hover{
+    background:#1565C0;
+    transform:translateY(-2px);
 }
 
 /* Mensaje de éxito */

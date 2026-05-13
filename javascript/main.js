@@ -4,8 +4,7 @@ const BASE_PATH = window.location.hostname.includes("github.io")
   : "/";
 
 // Detecta si estamos en la raíz (index) o en una subcarpeta (src/)
-const enIndex = window.location.pathname.endsWith("Index.html")
-  || window.location.pathname.endsWith("index.html")
+const enIndex = window.location.pathname.endsWith("index.html")
   || window.location.pathname === BASE_PATH
   || window.location.pathname === "/";
 
@@ -23,7 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(BASE_PATH + "src/header.html")
       .then(res => res.text())
       .then(data => {
-        headerEl.outerHTML = data;
+        headerEl.innerHTML = data;
+        const header = document.querySelector("header"); 
+        if (!enIndex && header) {
+          header.classList.add("internal-page");
+        }
 
         // Logo
         const logo = document.querySelector(".logo-container img");
@@ -61,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(BASE_PATH + "src/footer.html")
       .then(res => res.text())
       .then(data => {
-        footerEl.outerHTML = data;
+        footerEl.innerHTML = data;
       })
       .catch(err => console.error("Error al cargar el footer:", err));
   }
@@ -241,6 +244,9 @@ montoBtns.forEach(btn => {
 
 // ── FORMULARIO DONACIÓN ───────────────────────────────────────────────────
 const formDonacion = document.getElementById("formDonacion");
+const btnResetVoluntario = document.getElementById("btnResetVoluntario");
+  
+btnResetVoluntario?.addEventListener("click", resetForm);
 if (formDonacion) {
   formDonacion.addEventListener("submit", (e) => {
     e.preventDefault();

@@ -23,7 +23,7 @@
             <img src="imagenes/Publicidad.webp" alt="Publicidad">
             <h3>¡Apoya nuestra misión!</h3>
             <p style="margin-bottom:20px;">Con tu ayuda podemos seguir llevando esperanza a más personas.</p>
-            <a href="src/donaciones.html" class="donate-btn" style="margin-top:10px; display:inline-block;">Donar
+            <a href="src/donaciones.html" class="donate-btn" style="margin-top:10px; display:inline-block;" >Donar
                 ahora</a>
         </div>
     </div>
@@ -32,10 +32,10 @@
 
     <section class="hero" id="hero">
         <div class="slider">
-            <img src="imagenes/hero5.jpg" class="slide active" loading="eager">
-            <img src="imagenes/hero6.jpg" class="slide" loading="lazy">
-            <img src="imagenes/hero7.jpg" class="slide" loading="lazy">
-            <img src="imagenes/hero8.jpg" class="slide" loading="lazy">
+            <img src="imagenes/hero5.jpg" class="slide active" loading="eager" alt="imagen hero principal">
+            <img src="imagenes/hero6.jpg" class="slide" loading="lazy" alt="imagen hero secundaria">
+            <img src="imagenes/hero7.jpg" class="slide" loading="lazy" alt="imagen hero tercera">
+            <img src="imagenes/hero8.jpg" class="slide" loading="lazy" alt="imagen hero cuarta">
             <button class="prev" aria-label="Anterior">❮</button>
             <button class="next" aria-label="Siguiente">❯</button>
 
@@ -326,7 +326,7 @@
                     </div>
 
                     <div class="vol-field">
-                        <label>¿En qué actividades te gustaría participar?</label>
+                        <label for="volActividad">¿En qué actividades te gustaría participar?</label>
                         <select id="volActividad">
                             <option value="">Selecciona una opción</option>
                             <option value="Ropaton">Ropaton</option>
@@ -363,19 +363,16 @@
                     <h3>¡Gracias por querer ser parte de nuestra gran Fundación!</h3>
                     <p>Recibimos tu solicitud exitosamente. Pronto nos pondremos en contacto contigo. ¡Que Dios te
                         bendiga! ❤️</p>
-                    <button onclick="resetForm()"
-                        style="background:#0D47A1; color:#fff; border:none; border-radius:25px; padding:12px 28px; font-size:13px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:8px; margin-top:12px; font-family:'Poppins',sans-serif; transition:0.3s;"
-                        onmouseover="this.style.background='#1565C0'; this.style.transform='translateY(-2px)'"
-                        onmouseout="this.style.background='#0D47A1'; this.style.transform='translateY(0)'">
+                    <button type="button" id="btnResetVoluntario" class="btn-reset-voluntario">
                         ↺ Registrar otro voluntario
-                    </button>
+                    </button>   
                 </div>
             </div>
 
         </div>
     </section>
 
-    <a href="https://wa.me/573001234567" class="whatsapp" target="_blank">
+    <a href="https://wa.me/573235545626" class="whatsapp" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i> Habla con nosotros
     </a>
     <div id="footer"></div>
