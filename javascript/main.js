@@ -308,59 +308,6 @@ function setPanel(n) {
     }
 }
 
-// ---detectar imagenes dominantes para adaptar colores---
-function getDominantColor(img) {
-  const canvas = document.createElement("canvas");
-  const ctx = canvas.getContext("2d");
-
-  canvas.width = img.naturalWidth;
-  canvas.height = img.naturalHeight;
-
-  ctx.drawImage(img, 0, 0);
-
-  const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-
-  let r = 0, g = 0, b = 0, count = 0;
-
-  // 🔥 Tomamos muestras (no todos los píxeles para optimizar)
-  for (let i = 0; i < data.length; i += 40) {
-    r += data[i];
-    g += data[i + 1];
-    b += data[i + 2];
-    count++;
-  }
-
-  r = Math.floor(r / count);
-  g = Math.floor(g / count);
-  b = Math.floor(b / count);
-
-  return `rgb(${r}, ${g}, ${b})`;
-}
-window.addEventListener("load", () => {
-  const img = document.getElementById("heroImg");
-  const hero = document.querySelector(".hero");
-
-  if (!img || !hero) return;
-
-  // Esperar a que cargue la imagen
-  if (img.complete) {
-    aplicarColor();
-  } else {
-    img.onload = aplicarColor;
-  }
-
-  function aplicarColor() {
-    const color = getDominantColor(img);
-
-    hero.style.background = `
-      linear-gradient(90deg, 
-        ${color} 0%, 
-        #0D47A1 50%, 
-        ${color} 100%)
-    `;
-  }
-});
-
 // ── FORMULARIO VOLUNTARIADO ───────────────
 function toggleDia(btn) {
   btn.classList.toggle('active');
@@ -428,3 +375,36 @@ function volToast(msg) {
     setTimeout(() => t.remove(), 300);
   }, 3000);
 }
+
+
+// --- efecto parallax en hero ---
+const hero = document.querySelector(".hero");
+const heroBg = document.querySelector(".hero-bg");
+const heroContent = document.querySelector(".hero-content");
+const heroLogo = document.querySelector(".hero-logo");
+
+window.addEventListener("scroll", () => {
+    if (!hero) return;
+    const scrollY = window.scrollY;
+    /* IMAGEN */
+    if (heroBg){
+        heroBg.style.transform = `
+          scale(1.08)
+          translateY(${scrollY * 0.18}px)
+        `;
+    }
+
+    /* TEXTO */
+    if (heroContent){
+        heroContent.style.transform = `
+          translateY(${scrollY * 0.10}px)
+        `;
+    }
+    /* LOGO */
+    if (heroLogo){
+
+        heroLogo.style.transform = `
+          translateY(${scrollY * 0.06}px)
+        `;
+    }
+});

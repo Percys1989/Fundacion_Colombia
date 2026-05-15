@@ -24,16 +24,29 @@
 
     <!-- HERO -->
     <section class="hero">
-        <picture>
-            <!-- Móvil: hasta 480px → imagen vertical o recortada -->
-            <source srcset="../imagenes/banner_hamburguesas_movil.webp" media="(max-width: 480px)">
-            <!-- Tablet: hasta 768px → imagen mediana -->
-            <source srcset="../imagenes/banner_hamburguesas_tablet.webp" media="(max-width: 768px)">
-            <!-- Portátil: hasta 1024px -->
-            <source srcset="../imagenes/banner_hamburguesas_laptop.webp" media="(max-width: 1024px)">
-            <!-- Desktop: imagen completa por defecto -->
-            <img src="../imagenes/banner_hamburguesas.png" alt="Hamburguesas" id="heroImg">
-        </picture>
+        <img src="../imagenes/banner_hamburguesas.jpg" alt="Entrega de hamburguesas" class="hero-bg">
+        <div class="hero-overlay"></div>
+
+        <!-- LOGO -->
+        <img src="../imagenes/logo_header.jpg" alt="Fundación" class="hero-logo">
+
+        <div class="hero-content">
+            <span class="hero-badge">
+                Fundación Colombia Familias Resilientes
+            </span>
+            <h1>
+                Entregando esperanza y alimentos
+                a las familias vulnerables
+                de nuestra ciudad
+            </h1>
+            <p>
+                Transformamos vidas con solidaridad,
+                amor y compromiso social.
+            </p>
+            <a href="../src/donaciones.html" class="hero-btn">
+                Donar ahora
+            </a>
+        </div>
     </section>
 
     <!-- CONTENIDO -->
