@@ -5,288 +5,282 @@
           → Tipos → Montos → Botones → Métodos → Gracias → Toast
    ═══════════════════════════════════════════════════════════ */
 
-
 /* ── HERO con partículas ── */
 .don-hero {
-    background: linear-gradient(135deg, #0a1628 0%, #0D47A1 50%, #0a1628 100%);
-    height: 220px;
-    margin-top: 95px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+  background: linear-gradient(135deg, #0a1628 0%, #0d47a1 50%, #0a1628 100%);
+  height: 300px;
+  margin-top: 95px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .don-hero canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .don-hero h1,
 .don-hero p {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
+  color: #fff;
 }
 
 /* ── BODY fondo círculos en esquinas ── */
 .don-section {
-    position: relative;
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 50px 20px 80px;
-    z-index: 1;
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 50px 20px 80px;
+  z-index: 1;
 }
 
 body.pag-donaciones {
-    background: #F8FAFC;
-    position: relative;
-    overflow-x: hidden;
+  background: #f8fafc;
+  position: relative;
+  overflow-x: hidden;
 }
 
 body.pag-donaciones::before {
-    content: '';
-    position: fixed;
-    top: -150px;
-    right: -100px;
-    width: 400px;
-    height: 400px;
-    background: #0D47A1;
-    border-radius: 50%;
-    opacity: 0.06;
-    pointer-events: none;
-    z-index: 0;
-    animation: pulseBg 6s ease-in-out infinite;
+  content: "";
+  position: fixed;
+  top: -150px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: #0d47a1;
+  border-radius: 50%;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+  animation: pulseBg 6s ease-in-out infinite;
 }
 
 body.pag-donaciones::after {
-    content: '';
-    position: fixed;
-    bottom: -120px;
-    left: -80px;
-    width: 350px;
-    height: 350px;
-    background: #FFC107;
-    border-radius: 50%;
-    opacity: 0.08;
-    pointer-events: none;
-    z-index: 0;
-    animation: pulseBg 8s ease-in-out infinite reverse;
+  content: "";
+  position: fixed;
+  bottom: -120px;
+  left: -80px;
+  width: 350px;
+  height: 350px;
+  background: #ffc107;
+  border-radius: 50%;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+  animation: pulseBg 8s ease-in-out infinite reverse;
 }
 
 /* Círculo extra arriba izquierda */
 .don-geo-extra {
-    position: fixed;
-    top: 300px;
-    left: -60px;
-    width: 180px;
-    height: 180px;
-    background: #0D47A1;
-    border-radius: 50%;
-    opacity: 0.05;
-    pointer-events: none;
-    z-index: 0;
-    animation: pulseBg 7s ease-in-out infinite;
+  position: fixed;
+  top: 300px;
+  left: -60px;
+  width: 180px;
+  height: 180px;
+  background: #0d47a1;
+  border-radius: 50%;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+  animation: pulseBg 7s ease-in-out infinite;
 }
 
 @keyframes pulseBg {
+  0%,
+  100% {
+    transform: scale(1);
+  }
 
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.1);
-    }
+  50% {
+    transform: scale(1.1);
+  }
 }
-
 
 /* ── 2. SECCIÓN PRINCIPAL ──── */
 .don-section {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 50px 20px 80px;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 50px 20px 80px;
 }
-
 
 /* ── 3. INDICADOR DE PASOS ─── */
 .don-steps {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
 }
 
 .don-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    opacity: 0.35;
-    transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.35;
+  transition: 0.3s;
 }
 
 .don-step.active {
-    opacity: 1;
+  opacity: 1;
 }
 
 .don-step-num {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: #ccc;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 15px;
-    transition: 0.3s;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ccc;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  transition: 0.3s;
 }
 
 .don-step.active .don-step-num {
-    background: var(--azul-principal);
-    box-shadow: 0 0 0 4px rgba(13, 71, 161, 0.15);
+  background: var(--azul-principal);
+  box-shadow: 0 0 0 4px rgba(13, 71, 161, 0.15);
 }
 
 .don-step.done .don-step-num {
-    background: #27ae60;
+  background: #27ae60;
 }
 
 .don-step span {
-    font-size: 11px;
-    color: #555;
-    font-weight: 600;
-    white-space: nowrap;
+  font-size: 11px;
+  color: #555;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .don-step.active span {
-    color: var(--azul-principal);
+  color: var(--azul-principal);
 }
 
 .don-step-line {
-    flex: 1;
-    height: 2px;
-    background: #e0e0e0;
-    margin: 0 10px 20px;
-    max-width: 80px;
+  flex: 1;
+  height: 2px;
+  background: #e0e0e0;
+  margin: 0 10px 20px;
+  max-width: 80px;
 }
-
 
 /* ── 4. TARJETA PRINCIPAL ─── */
 .don-card {
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    border: 0.5px solid #f0f0f0;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 0.5px solid #f0f0f0;
 }
 
 /* Barra de progreso superior */
 .don-progress {
-    height: 4px;
-    background: #e8f0fe;
+  height: 4px;
+  background: #e8f0fe;
 }
 
 .don-progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--azul-principal), #1976D2);
-    transition: width 0.4s ease;
+  height: 100%;
+  background: linear-gradient(90deg, var(--azul-principal), #1976d2);
+  transition: width 0.4s ease;
 }
-
 
 /* ── 5. PANELES ───── */
 .don-panel {
-    display: none;
-    padding: 36px 40px;
-    animation: fadePanel 0.35s ease;
+  display: none;
+  padding: 36px 40px;
+  animation: fadePanel 0.35s ease;
 }
 
 .don-panel.active {
-    display: block;
+  display: block;
 }
 
 @keyframes fadePanel {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .don-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--oscuro);
-    margin-bottom: 6px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--oscuro);
+  margin-bottom: 6px;
 }
 
 .don-subtitle {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 20px;
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
 }
 
 /* Separadores de sección dentro del formulario */
 .don-seccion-label {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--azul-principal);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 14px;
-    margin-top: 22px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid #e8f0fe;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--azul-principal);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  margin-top: 22px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e8f0fe;
 }
 
 .don-seccion-label:first-of-type {
-    margin-top: 0;
+  margin-top: 0;
 }
-
 
 /* ── 6. FORMULARIO ─── */
 .don-form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .don-field label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: #444;
-    margin-bottom: 8px;
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
 }
 
 .req {
-    color: var(--rojo);
+  color: var(--rojo);
 }
 
 /* Inputs con ícono */
 .don-input-wrap {
-    position: relative;
+  position: relative;
 }
 
 .don-input-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #bbb;
-    font-size: 14px;
-    pointer-events: none;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bbb;
+  font-size: 14px;
+  pointer-events: none;
 }
 
 /* Inputs base */
@@ -294,474 +288,467 @@ body.pag-donaciones::after {
 .don-field input[type="email"],
 .don-field input[type="tel"],
 .don-field input[type="number"] {
-    width: 100%;
-    padding: 12px 16px 12px 30px;
-    border: 1.5px solid #e8e8e8;
-    border-radius: 12px;
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    color: var(--texto);
-    outline: none;
-    background: #fafafa;
-    transition: 0.3s;
+  width: 100%;
+  padding: 12px 16px 12px 30px;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  color: var(--texto);
+  outline: none;
+  background: #fafafa;
+  transition: 0.3s;
 }
 
 .don-field input:focus {
-    border-color: var(--azul-principal);
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.08);
+  border-color: var(--azul-principal);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.08);
 }
-
 
 /* ── 7. TIPO DONACIÓN ─── */
 .don-tipo {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
 .tipo-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    padding: 18px 40px;
-    border: 2px solid #e0e0e0;
-    border-radius: 14px;
-    background: #fff;
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: 'Poppins', sans-serif;
-    min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 40px;
+  border: 2px solid #e0e0e0;
+  border-radius: 14px;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Poppins", sans-serif;
+  min-width: 160px;
 }
 
 .tipo-btn i {
-    font-size: 26px;
-    color: #aaa;
-    transition: 0.3s;
+  font-size: 26px;
+  color: #aaa;
+  transition: 0.3s;
 }
 
 .tipo-btn strong {
-    font-size: 15px;
-    color: #333;
+  font-size: 15px;
+  color: #333;
 }
 
 .tipo-btn small {
-    font-size: 11px;
-    color: #999;
+  font-size: 11px;
+  color: #999;
 }
 
 .tipo-btn:hover {
-    border-color: var(--azul-principal);
+  border-color: var(--azul-principal);
 }
 
 .tipo-btn.active {
-    border-color: var(--azul-principal);
-    background: #e8f0fe;
+  border-color: var(--azul-principal);
+  background: #e8f0fe;
 }
 
 .tipo-btn.active i {
-    color: var(--rojo);
+  color: var(--rojo);
 }
 
 .tipo-btn.active strong {
-    color: var(--azul-principal);
+  color: var(--azul-principal);
 }
-
 
 /* ── 8. MONTOS ─── */
 .don-montos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .don-montos .monto-btn {
-    padding: 9px 18px;
-    border: 1.5px solid #e8e8e8;
-    border-radius: 25px;
-    background: #fafafa;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    font-family: 'Poppins', sans-serif;
-    color: #555;
+  padding: 9px 18px;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 25px;
+  background: #fafafa;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Poppins", sans-serif;
+  color: #555;
 }
 
 .don-montos .monto-btn:hover {
-    border-color: var(--azul-principal);
-    color: var(--azul-principal);
+  border-color: var(--azul-principal);
+  color: var(--azul-principal);
 }
 
 .don-montos .monto-btn.active {
-    background: var(--azul-principal);
-    border-color: var(--azul-principal);
-    color: #fff;
+  background: var(--azul-principal);
+  border-color: var(--azul-principal);
+  color: #fff;
 }
-
 
 /* ── 9. BOTONES ─── */
 .don-btn-primary {
-    width: 100%;
-    padding: 14px;
-    background: linear-gradient(135deg, var(--azul-principal), #1565C0);
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    font-size: 15px;
-    font-weight: 700;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--azul-principal), #1565c0);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .don-btn-primary:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(13, 71, 161, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(13, 71, 161, 0.3);
 }
 
 .don-btn-primary:disabled {
-    background: #b0bec5;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
+  background: #b0bec5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .don-btn-secondary {
-    padding: 14px 22px;
-    background: transparent;
-    color: #666;
-    border: 1.5px solid #ddd;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    white-space: nowrap;
+  padding: 14px 22px;
+  background: transparent;
+  color: #666;
+  border: 1.5px solid #ddd;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
 }
 
 .don-btn-secondary:hover {
-    border-color: #999;
-    color: #333;
+  border-color: #999;
+  color: #333;
 }
 
 .don-btn-group {
-    display: flex;
-    gap: 12px;
-    margin-top: 28px;
-    align-items: center;
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  align-items: center;
 }
 
 .don-btn-group .don-btn-primary {
-    flex: 1;
-    width: auto;
+  flex: 1;
+  width: auto;
 }
-
 
 /* ── 10. MÉTODOS DE PAGO ─── */
 .don-metodos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
 }
 
 .metodo-card {
-    border: 2px solid #e0e0e0;
-    border-radius: 14px;
-    padding: 22px 14px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s;
-    background: #fafafa;
+  border: 2px solid #e0e0e0;
+  border-radius: 14px;
+  padding: 22px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  background: #fafafa;
 }
 
 .metodo-card:hover {
-    border-color: var(--azul-principal);
-    transform: translateY(-3px);
-    background: #fff;
+  border-color: var(--azul-principal);
+  transform: translateY(-3px);
+  background: #fff;
 }
 
 .metodo-card.active {
-    border-color: var(--azul-principal);
-    background: #e8f0fe;
+  border-color: var(--azul-principal);
+  background: #e8f0fe;
 }
 
 .metodo-card.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .metodo-icon {
-    font-size: 34px;
-    margin-bottom: 10px;
+  font-size: 34px;
+  margin-bottom: 10px;
 }
 
 .metodo-card h3 {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--oscuro);
-    margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--oscuro);
+  margin-bottom: 4px;
 }
 
 .metodo-card p {
-    font-size: 12px;
-    color: #888;
+  font-size: 12px;
+  color: #888;
 }
 
 .badge-pronto {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 3px 10px;
-    background: var(--amarillo);
-    color: #000;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
+  display: inline-block;
+  margin-top: 8px;
+  padding: 3px 10px;
+  background: var(--amarillo);
+  color: #000;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 /* Info método */
 .metodo-info {
-    display: none;
-    background: var(--gris-claro);
-    border-radius: 14px;
-    padding: 22px 24px;
-    margin-bottom: 8px;
-    border: 1px solid #e0e8f0;
-    animation: fadePanel 0.3s ease;
+  display: none;
+  background: var(--gris-claro);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin-bottom: 8px;
+  border: 1px solid #e0e8f0;
+  animation: fadePanel 0.3s ease;
 }
 
 .metodo-info.show {
-    display: block;
+  display: block;
 }
 
 .metodo-info h4 {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--oscuro);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--oscuro);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .info-fila {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 13px;
-    gap: 8px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .info-fila:last-of-type {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .info-lbl {
-    color: #888;
-    flex-shrink: 0;
+  color: #888;
+  flex-shrink: 0;
 }
 
 .info-val {
-    font-weight: 600;
-    color: var(--oscuro);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-align: right;
+  font-weight: 600;
+  color: var(--oscuro);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: right;
 }
 
 .btn-copiar {
-    background: #e8f0fe;
-    border: none;
-    border-radius: 8px;
-    padding: 3px 10px;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--azul-principal);
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    transition: 0.2s;
+  background: #e8f0fe;
+  border: none;
+  border-radius: 8px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--azul-principal);
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  transition: 0.2s;
 }
 
 .btn-copiar:hover {
-    background: var(--azul-principal);
-    color: #fff;
+  background: var(--azul-principal);
+  color: #fff;
 }
 
 .metodo-nota {
-    margin-top: 14px;
-    font-size: 12px;
-    color: #888;
-    background: #fff8e1;
-    padding: 10px 14px;
-    border-radius: 10px;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    line-height: 1.5;
+  margin-top: 14px;
+  font-size: 12px;
+  color: #888;
+  background: #fff8e1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
 }
 
 .metodo-nota i {
-    color: var(--amarillo-acento);
-    margin-top: 2px;
-    flex-shrink: 0;
+  color: var(--amarillo-acento);
+  margin-top: 2px;
+  flex-shrink: 0;
 }
 
 /* QR */
 .qr-wrap {
-    text-align: center;
-    padding: 10px 0;
+  text-align: center;
+  padding: 10px 0;
 }
 
 .qr-wrap img {
-    width: 180px;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
+  width: 180px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
 }
 
 .qr-wrap p {
-    font-size: 13px;
-    color: #666;
+  font-size: 13px;
+  color: #666;
 }
-
 
 /* ── 11. PASO 3: CONFIRMACIÓN ─── */
 .don-gracias {
-    text-align: center;
-    padding: 10px 0;
+  text-align: center;
+  padding: 10px 0;
 }
 
 .gracias-icon {
-    font-size: 60px;
-    margin-bottom: 16px;
+  font-size: 60px;
+  margin-bottom: 16px;
 }
 
 .don-gracias h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--oscuro);
-    margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--oscuro);
+  margin-bottom: 10px;
 }
 
-.don-gracias>p {
-    font-size: 15px;
-    color: #555;
-    margin-bottom: 24px;
+.don-gracias > p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 24px;
 }
 
 .gracias-resumen {
-    background: var(--gris-claro);
-    border-radius: 14px;
-    padding: 16px 20px;
-    margin: 20px 0;
-    text-align: left;
+  background: var(--gris-claro);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 20px 0;
+  text-align: left;
 }
 
 .resumen-fila {
-    display: flex;
-    justify-content: space-between;
-    padding: 7px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
 }
 
 .resumen-fila:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .resumen-fila span {
-    color: #888;
+  color: #888;
 }
 
 .resumen-fila strong {
-    color: var(--oscuro);
+  color: var(--oscuro);
 }
 
 .gracias-nota {
-    font-size: 13px;
-    color: #777;
-    line-height: 1.7;
-    margin-top: 16px;
+  font-size: 13px;
+  color: #777;
+  line-height: 1.7;
+  margin-top: 16px;
 }
-
 
 /* ── 12. TOAST ──── */
 .don-toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px);
-    background: #333;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    opacity: 0;
-    transition: 0.3s;
-    z-index: 9999;
-    white-space: nowrap;
-    pointer-events: none;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #333;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 9999;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 .don-toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .don-toast.exito {
-    background: #27ae60;
+  background: #27ae60;
 }
-
 
 /* ── 13. RESPONSIVE ──── */
 @media (max-width: 600px) {
-    .don-panel {
-        padding: 24px 20px;
-    }
+  .don-panel {
+    padding: 24px 20px;
+  }
 
-    .don-tipo {
-        flex-direction: column;
-        align-items: center;
-    }
+  .don-tipo {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .don-metodos {
-        grid-template-columns: 1fr 1fr;
-    }
+  .don-metodos {
+    grid-template-columns: 1fr 1fr;
+  }
 
-    .don-btn-group {
-        flex-direction: column;
-    }
+  .don-btn-group {
+    flex-direction: column;
+  }
 
-    .don-btn-group .don-btn-secondary {
-        width: 100%;
-        justify-content: center;
-    }
+  .don-btn-group .don-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
 
-    .don-steps span {
-        display: none;
-    }
+  .don-steps span {
+    display: none;
+  }
 
-    .don-step-line {
-        max-width: 40px;
-    }
+  .don-step-line {
+    max-width: 40px;
+  }
 
-    .don-hero h1 {
-        font-size: 26px;
-    }
+  .don-hero h1 {
+    font-size: 26px;
+  }
 }

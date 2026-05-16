@@ -1,283 +1,399 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Donaciones - Fundación Colombia Familias Resilientes</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/styleheader.css">
-    <link rel="stylesheet" href="../css/stylefooter.css">
-    <link rel="stylesheet" href="../css/styleindex.css">
-    <link rel="stylesheet" href="../css/styledonaciones.css">
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/styleheader.css" />
+    <link rel="stylesheet" href="../css/stylefooter.css" />
+    <link rel="stylesheet" href="../css/styleindex.css" />
+    <link rel="stylesheet" href="../css/styledonaciones.css" />
+  </head>
 
-<body class="pag-donaciones">
-
+  <body class="pag-donaciones">
     <div id="header"></div>
     <div class="don-geo-extra"></div>
 
     <!-- HERO -->
     <section class="don-hero">
-        <canvas id="heroCanvas"></canvas>
-        <h1>💛💙❤️ Apoya Nuestra Fundación</h1>
-        <p>Tu aporte transforma vidas</p>
+      <canvas id="heroCanvas"></canvas>
+      <h1>💛💙❤️ Apoya Nuestra Fundación</h1>
+      <p>Tu aporte transforma vidas</p>
     </section>
 
     <!-- CONTENEDOR PRINCIPAL -->
     <section class="don-section">
-
-        <!-- INDICADOR DE PASOS -->
-        <div class="don-steps">
-            <div class="don-step active" id="stepInd1">
-                <div class="don-step-num">1</div>
-                <span>Tus datos</span>
-            </div>
-            <div class="don-step-line"></div>
-            <div class="don-step" id="stepInd2">
-                <div class="don-step-num">2</div>
-                <span>Método de pago</span>
-            </div>
-            <div class="don-step-line"></div>
-            <div class="don-step" id="stepInd3">
-                <div class="don-step-num">3</div>
-                <span>Confirmación</span>
-            </div>
+      <!-- INDICADOR DE PASOS -->
+      <div class="don-steps">
+        <div class="don-step active" id="stepInd1">
+          <div class="don-step-num">1</div>
+          <span>Tus datos</span>
         </div>
+        <div class="don-step-line"></div>
+        <div class="don-step" id="stepInd2">
+          <div class="don-step-num">2</div>
+          <span>Método de pago</span>
+        </div>
+        <div class="don-step-line"></div>
+        <div class="don-step" id="stepInd3">
+          <div class="don-step-num">3</div>
+          <span>Confirmación</span>
+        </div>
+      </div>
 
-        <!-- TARJETA PRINCIPAL -->
-        <div class="don-card">
-            <div class="don-progress">
-                <div class="don-progress-fill" id="progressFill" style="width: 33%"></div>
+      <!-- TARJETA PRINCIPAL -->
+      <div class="don-card">
+        <div class="don-progress">
+          <div
+            class="don-progress-fill"
+            id="progressFill"
+            style="width: 33%"
+          ></div>
+        </div>
+        <!-- ══ PASO 1: DATOS ══ -->
+        <div class="don-panel active" id="panel1">
+          <h2 class="don-title">📝 Tus datos</h2>
+          <p class="don-subtitle">
+            Completa la información para registrar tu donación
+          </p>
+
+          <div class="don-form">
+            <p class="don-seccion-label">Información personal</p>
+            <div class="don-field">
+              <label for="inputNombre"
+                >Nombre completo <span class="req">*</span></label
+              >
+              <div class="don-input-wrap">
+                <span class="don-input-icon"><i class="fas fa-user"></i></span>
+                <input
+                  type="text"
+                  id="inputNombre"
+                  placeholder="Ej: María García López"
+                />
+              </div>
             </div>
-            <!-- ══ PASO 1: DATOS ══ -->
-            <div class="don-panel active" id="panel1">
-                <h2 class="don-title">📝 Tus datos</h2>
-                <p class="don-subtitle">Completa la información para registrar tu donación</p>
 
-                <div class="don-form">
-                    <p class="don-seccion-label">Información personal</p>
-                    <div class="don-field">
-                        <label for="inputNombre">Nombre completo <span class="req">*</span></label>
-                        <div class="don-input-wrap">
-                            <span class="don-input-icon"><i class="fas fa-user"></i></span>
-                            <input type="text" id="inputNombre" placeholder="Ej: María García López">
-                        </div>
-                    </div>
+            <div class="don-field">
+              <label for="inputCorreo"
+                >Correo electrónico <span class="req">*</span></label
+              >
+              <div class="don-input-wrap">
+                <span class="don-input-icon"
+                  ><i class="fas fa-envelope"></i
+                ></span>
+                <input
+                  type="email"
+                  id="inputCorreo"
+                  placeholder="correo@ejemplo.com"
+                />
+              </div>
+            </div>
 
-                    <div class="don-field">
-                        <label for="inputCorreo">Correo electrónico <span class="req">*</span></label>
-                        <div class="don-input-wrap">
-                            <span class="don-input-icon"><i class="fas fa-envelope"></i></span>
-                            <input type="email" id="inputCorreo" placeholder="correo@ejemplo.com">
-                        </div>
-                    </div>
-
-                    <div class="don-field">
-                        <label for="inputCelular">Número de celular <span class="req">*</span></label>
-                        <div class="don-input-wrap">
-                            <span class="don-input-icon"><i class="fas fa-mobile-alt"></i></span>
-                            <input type="tel" id="inputCelular" placeholder="Ej: 3001234567" maxlength="10"
-                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                        </div>
-                    </div>
-                    <p class="don-seccion-label">Tipo y monto</p>
-                    <div class="don-field">
-                        <label>Tipo de donación <span class="req">*</span></label>
-                        <div class="don-tipo">
-                            <!-- <button type="button" class="tipo-btn" data-tipo="Diezmo" onclick="selTipo(this)">
+            <div class="don-field">
+              <label for="inputCelular"
+                >Número de celular <span class="req">*</span></label
+              >
+              <div class="don-input-wrap">
+                <span class="don-input-icon"
+                  ><i class="fas fa-mobile-alt"></i
+                ></span>
+                <input
+                  type="tel"
+                  id="inputCelular"
+                  placeholder="Ej: 3001234567"
+                  maxlength="10"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                />
+              </div>
+            </div>
+            <p class="don-seccion-label">Tipo y monto</p>
+            <div class="don-field">
+              <label>Tipo de donación <span class="req">*</span></label>
+              <div class="don-tipo">
+                <!-- <button type="button" class="tipo-btn" data-tipo="Diezmo" onclick="selTipo(this)">
                                 <i class="fas fa-church"></i>
                                 <strong>Diezmo</strong>
                                 <small>El 10% de mis ingresos</small>
                             </button>-->
-                            <button type="button" class="tipo-btn" data-tipo="Ofrenda" onclick="selTipo(this)">
-                                <i class="fas fa-heart"></i>
-                                <strong>Ofrenda</strong>
-                                <small>Donación voluntaria</small>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="don-field">
-                        <label>Monto a donar <span class="req">*</span></label>
-                        <div class="don-montos">
-                            <button type="button" class="monto-btn" data-value="20000"
-                                onclick="selMonto(this)">$20.000</button>
-                            <button type="button" class="monto-btn" data-value="50000"
-                                onclick="selMonto(this)">$50.000</button>
-                            <button type="button" class="monto-btn" data-value="100000"
-                                onclick="selMonto(this)">$100.000</button>
-                            <button type="button" class="monto-btn" data-value="200000"
-                                onclick="selMonto(this)">$200.000</button>
-                            <button type="button" class="monto-btn" data-value="otro" onclick="selMonto(this)">Otro
-                                valor</button>
-                        </div>
-                        <input type="number" id="montoPersonalizado" placeholder="Escribe el monto en pesos COP"
-                            style="display:none; margin-top:10px;">
-                    </div>
-
-                    <button class="don-btn-primary" onclick="irPaso2()">
-                        Continuar <i class="fas fa-arrow-right"></i>
-                    </button>
-
-                </div>
+                <button
+                  type="button"
+                  class="tipo-btn"
+                  data-tipo="Ofrenda"
+                  onclick="selTipo(this)"
+                >
+                  <i class="fas fa-heart"></i>
+                  <strong>Ofrenda</strong>
+                  <small>Donación voluntaria</small>
+                </button>
+              </div>
             </div>
 
-            <!-- ══ PASO 2: MÉTODO DE PAGO ══ -->
-            <div class="don-panel" id="panel2">
-                <h2 class="don-title">💳 Elige cómo donar</h2>
-                <p class="don-subtitle">Selecciona el método de pago de tu preferencia</p>
-
-                <div class="don-metodos">
-                    <div class="metodo-card" id="cardTransferencia" onclick="selMetodo('Transferencia')">
-                        <div class="metodo-icon">🏦</div>
-                        <h3>Transferencia Bancaria</h3>
-                        <p>Transfiere directamente a nuestra cuenta</p>
-                    </div>
-                    <div class="metodo-card" id="cardQR" onclick="selMetodo('QR')">
-                        <div class="metodo-icon">📱</div>
-                        <h3>Código QR</h3>
-                        <p>Escanea con tu app bancaria</p>
-                    </div>
-                    <div class="metodo-card" id="cardPSE" onclick="selMetodo('PSE')">
-                        <div class="metodo-icon">💳</div>
-                        <h3>Pago por PSE</h3>
-                        <p>Pago Seguro en Linea</p>
-                    </div>
-                </div>
-
-                <!-- INFO TRANSFERENCIA -->
-                <div class="metodo-info" id="infoTransferencia">
-                    <h4><i class="fas fa-university"></i> Datos bancarios</h4>
-                    <div class="info-fila">
-                        <span class="info-lbl">Banco</span>
-                        <span class="info-val">Banco de Bogotá</span>
-                    </div>
-                    <div class="info-fila">
-                        <span class="info-lbl">Tipo de cuenta</span>
-                        <span class="info-val">Ahorros</span>
-                    </div>
-                    <div class="info-fila">
-                        <span class="info-lbl">Número</span>
-                        <span class="info-val">
-                            24-110480220
-                            <button class="btn-copiar" onclick="copiar('24-110480220')">
-                                <i class="fas fa-copy"></i> Copiar
-                            </button>
-                        </span>
-                    </div>
-                    <div class="info-fila">
-                        <span class="info-lbl">Titular</span>
-                        <span class="info-val">Fundación Colombia Familias Resilientes</span>
-                    </div>
-                    <div class="info-fila">
-                        <span class="info-lbl">NIT</span>
-                        <span class="info-val">
-                            <!-- ✏️ REEMPLAZA CON EL NIT REAL -->
-                            901-49213-8
-                            <button class="btn-copiar" onclick="copiar('901-49213-8')">
-                                <i class="fas fa-copy"></i> Copiar
-                            </button>
-                        </span>
-                    </div>
-                    <p class="metodo-nota">
-                        <i class="fas fa-info-circle"></i>
-                        Realiza la transferencia y luego haz clic en "Confirmar donación"
-                    </p>
-                </div>
-
-                <!-- INFO QR -->
-                <div class="metodo-info" id="infoQR">
-                    <h4><i class="fas fa-qrcode"></i> Escanea el código QR</h4>
-                    <div class="qr-wrap">
-                        <!-- ✏️ Asegúrate de que imagenes/qr.png existe en tu carpeta -->
-                        <img src="../imagenes/QR_funcofare.jpeg" alt="QR de donación"
-                            onerror="this.src='https://placehold.co/180x180/png?text=QR'">
-                        <p>Abre tu app bancaria, selecciona "Pagar con QR" y escanea la imagen</p>
-                    </div>
-                    <p class="metodo-nota">
-                        <i class="fas fa-info-circle"></i>
-                        Realiza el pago y luego haz clic en "Confirmar donación"
-                    </p>
-                </div>
-
-                <!-- INFO PSE -->
-                <div class="metodo-info" id="infoPSE">
-                    <h4><i class="fas fa-lock"></i> Pago seguro con Mi Pago Amigo</h4>
-
-                    <div class="info-fila">
-                        <span class="info-lbl">Convenio</span>
-                        <span class="info-val">
-                            FUNDACION COLOMBIA FAMILIAS RESILIENTES
-                            <button class="btn-copiar" onclick="copiar('FUNDACION COLOMBIA FAMILIAS RESILIENTES')">
-                                <i class="fas fa-copy"></i> Copiar
-                            </button>
-                        </span>
-                    </div>
-
-                    <div class="metodo-nota" style="margin-top:14px;">
-                        <i class="fas fa-info-circle"></i>
-                        Al confirmar serás redirigido a <strong>Mi Pago Amigo</strong>.
-                        Busca el convenio copiado, ingresa tus datos y completa el pago de forma segura.
-                    </div>
-
-                    <div class="metodo-nota" style="margin-top:8px; background:#e8f0fe;">
-                        <i class="fas fa-shield-alt"></i>
-                        Plataforma certificada de pagos PSE en Colombia. Tu transacción está 100% protegida.
-                    </div>
-                </div>
-
-                <!-- NÚMERO DE REFERENCIA -->
-                <div class="don-field" id="campoReferencia" style="display:none; margin-top:16px;">
-                    <label>
-                        Número de referencia de la transacción <span class="req">*</span>
-                    </label>
-                    <input type="text" id="inputReferencia" placeholder="Ej: 123456789 (aparece en tu app bancaria)">
-                    <p style="font-size:12px; color:#999; margin-top:6px;">
-                        <i class="fas fa-info-circle"></i>
-                        Encuéntralo en el comprobante o historial de tu app bancaria
-                    </p>
-                </div>
-
-                <div class="don-btn-group">
-                    <button class="don-btn-secondary" onclick="irPaso1()">
-                        <i class="fas fa-arrow-left"></i> Volver
-                    </button>
-                    <button class="don-btn-primary" id="btnConfirmar" onclick="irPaso3()" disabled>
-                        Confirmar donación <i class="fas fa-check"></i>
-                    </button>
-                </div>
+            <div class="don-field">
+              <label>Monto a donar <span class="req">*</span></label>
+              <div class="don-montos">
+                <button
+                  type="button"
+                  class="monto-btn"
+                  data-value="20000"
+                  onclick="selMonto(this)"
+                >
+                  $20.000
+                </button>
+                <button
+                  type="button"
+                  class="monto-btn"
+                  data-value="50000"
+                  onclick="selMonto(this)"
+                >
+                  $50.000
+                </button>
+                <button
+                  type="button"
+                  class="monto-btn"
+                  data-value="100000"
+                  onclick="selMonto(this)"
+                >
+                  $100.000
+                </button>
+                <button
+                  type="button"
+                  class="monto-btn"
+                  data-value="200000"
+                  onclick="selMonto(this)"
+                >
+                  $200.000
+                </button>
+                <button
+                  type="button"
+                  class="monto-btn"
+                  data-value="otro"
+                  onclick="selMonto(this)"
+                >
+                  Otro valor
+                </button>
+              </div>
+              <input
+                type="number"
+                id="montoPersonalizado"
+                placeholder="Escribe el monto en pesos COP"
+                style="display: none; margin-top: 10px"
+              />
             </div>
 
-            <!-- ══ PASO 3: CONFIRMACIÓN ══ -->
-            <div class="don-panel" id="panel3">
-                <div class="don-gracias">
-                    <div class="gracias-icon">🙏</div>
-                    <h2>¡Gracias por tu generosidad!</h2>
-                    <p id="graciasTexto"></p>
-                    <div class="gracias-resumen" id="resumenDonacion"></div>
-                    <p class="gracias-nota">
-                        Hemos registrado tu donación exitosamente. La Fundación Colombia
-                        Familias Resilientes te lo agradece de corazón. ¡Que Dios te bendiga! ❤️
-                    </p>
-                    <a href="../index.html" class="don-btn-primary"
-                        style="display:inline-flex; text-decoration:none; margin-top:20px; width:auto; padding: 14px 32px;">
-                        <i class="fas fa-home"></i> Volver al inicio
-                    </a>
-                </div>
-            </div>
-
+            <button class="don-btn-primary" onclick="irPaso2()">
+              Continuar <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
         </div>
+
+        <!-- ══ PASO 2: MÉTODO DE PAGO ══ -->
+        <div class="don-panel" id="panel2">
+          <h2 class="don-title">💳 Elige cómo donar</h2>
+          <p class="don-subtitle">
+            Selecciona el método de pago de tu preferencia
+          </p>
+
+          <div class="don-metodos">
+            <div
+              class="metodo-card"
+              id="cardTransferencia"
+              onclick="selMetodo('Transferencia')"
+            >
+              <div class="metodo-icon">🏦</div>
+              <h3>Transferencia Bancaria</h3>
+              <p>Transfiere directamente a nuestra cuenta</p>
+            </div>
+            <div class="metodo-card" id="cardQR" onclick="selMetodo('QR')">
+              <div class="metodo-icon">📱</div>
+              <h3>Código QR</h3>
+              <p>Escanea con tu app bancaria</p>
+            </div>
+            <div class="metodo-card" id="cardPSE" onclick="selMetodo('PSE')">
+              <div class="metodo-icon">💳</div>
+              <h3>Pago por PSE</h3>
+              <p>Pago Seguro en Linea</p>
+            </div>
+          </div>
+
+          <!-- INFO TRANSFERENCIA -->
+          <div class="metodo-info" id="infoTransferencia">
+            <h4><i class="fas fa-university"></i> Datos bancarios</h4>
+            <div class="info-fila">
+              <span class="info-lbl">Banco</span>
+              <span class="info-val">Banco de Bogotá</span>
+            </div>
+            <div class="info-fila">
+              <span class="info-lbl">Tipo de cuenta</span>
+              <span class="info-val">Ahorros</span>
+            </div>
+            <div class="info-fila">
+              <span class="info-lbl">Número</span>
+              <span class="info-val">
+                24-110480220
+                <button class="btn-copiar" onclick="copiar('24-110480220')">
+                  <i class="fas fa-copy"></i> Copiar
+                </button>
+              </span>
+            </div>
+            <div class="info-fila">
+              <span class="info-lbl">Titular</span>
+              <span class="info-val"
+                >Fundación Colombia Familias Resilientes</span
+              >
+            </div>
+            <div class="info-fila">
+              <span class="info-lbl">NIT</span>
+              <span class="info-val">
+                <!-- ✏️ REEMPLAZA CON EL NIT REAL -->
+                901-49213-8
+                <button class="btn-copiar" onclick="copiar('901-49213-8')">
+                  <i class="fas fa-copy"></i> Copiar
+                </button>
+              </span>
+            </div>
+            <p class="metodo-nota">
+              <i class="fas fa-info-circle"></i>
+              Realiza la transferencia y luego haz clic en "Confirmar donación"
+            </p>
+          </div>
+
+          <!-- INFO QR -->
+          <div class="metodo-info" id="infoQR">
+            <h4><i class="fas fa-qrcode"></i> Escanea el código QR</h4>
+            <div class="qr-wrap">
+              <!-- ✏️ Asegúrate de que imagenes/qr.png existe en tu carpeta -->
+              <img
+                src="../imagenes/QR_funcofare.jpeg"
+                alt="QR de donación"
+                onerror="this.src = 'https://placehold.co/180x180/png?text=QR'"
+              />
+              <p>
+                Abre tu app bancaria, selecciona "Pagar con QR" y escanea la
+                imagen
+              </p>
+            </div>
+            <p class="metodo-nota">
+              <i class="fas fa-info-circle"></i>
+              Realiza el pago y luego haz clic en "Confirmar donación"
+            </p>
+          </div>
+
+          <!-- INFO PSE -->
+          <div class="metodo-info" id="infoPSE">
+            <h4><i class="fas fa-lock"></i> Pago seguro con Mi Pago Amigo</h4>
+
+            <div class="info-fila">
+              <span class="info-lbl">Convenio</span>
+              <span class="info-val">
+                FUNDACION COLOMBIA FAMILIAS RESILIENTES
+                <button
+                  class="btn-copiar"
+                  onclick="copiar('FUNDACION COLOMBIA FAMILIAS RESILIENTES')"
+                >
+                  <i class="fas fa-copy"></i> Copiar
+                </button>
+              </span>
+            </div>
+
+            <div class="metodo-nota" style="margin-top: 14px">
+              <i class="fas fa-info-circle"></i>
+              Al confirmar serás redirigido a <strong>Mi Pago Amigo</strong>.
+              Busca el convenio copiado, ingresa tus datos y completa el pago de
+              forma segura.
+            </div>
+
+            <div
+              class="metodo-nota"
+              style="margin-top: 8px; background: #e8f0fe"
+            >
+              <i class="fas fa-shield-alt"></i>
+              Plataforma certificada de pagos PSE en Colombia. Tu transacción
+              está 100% protegida.
+            </div>
+          </div>
+
+          <!-- NÚMERO DE REFERENCIA -->
+          <div
+            class="don-field"
+            id="campoReferencia"
+            style="display: none; margin-top: 16px"
+          >
+            <label>
+              Número de referencia de la transacción <span class="req">*</span>
+            </label>
+            <input
+              type="text"
+              id="inputReferencia"
+              placeholder="Ej: 123456789 (aparece en tu app bancaria)"
+            />
+            <p style="font-size: 12px; color: #999; margin-top: 6px">
+              <i class="fas fa-info-circle"></i>
+              Encuéntralo en el comprobante o historial de tu app bancaria
+            </p>
+          </div>
+
+          <div class="don-btn-group">
+            <button class="don-btn-secondary" onclick="irPaso1()">
+              <i class="fas fa-arrow-left"></i> Volver
+            </button>
+            <button
+              class="don-btn-primary"
+              id="btnConfirmar"
+              onclick="irPaso3()"
+              disabled
+            >
+              Confirmar donación <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ══ PASO 3: CONFIRMACIÓN ══ -->
+        <div class="don-panel" id="panel3">
+          <div class="don-gracias">
+            <div class="gracias-icon">🙏</div>
+            <h2>¡Gracias por tu generosidad!</h2>
+            <p id="graciasTexto"></p>
+            <div class="gracias-resumen" id="resumenDonacion"></div>
+            <p class="gracias-nota">
+              Hemos registrado tu donación exitosamente. La Fundación Colombia
+              Familias Resilientes te lo agradece de corazón. ¡Que Dios te
+              bendiga! ❤️
+            </p>
+            <a
+              href="../index.html"
+              class="don-btn-primary"
+              style="
+                display: inline-flex;
+                text-decoration: none;
+                margin-top: 20px;
+                width: auto;
+                padding: 14px 32px;
+              "
+            >
+              <i class="fas fa-home"></i> Volver al inicio
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <div id="footer"></div>
     <div class="footer-bottom">
-        <p>© 2026 Fundación Colombia Familias Resilientes. Todos los derechos reservados.</p>
+      <p>
+        © 2026 Fundación Colombia Familias Resilientes. Todos los derechos
+        reservados.
+      </p>
     </div>
 
     <script src="../javascript/main.js"></script>
     <script src="../javascript/donaciones.js"></script>
-</body>
-
+  </body>
 </html>
